@@ -1,0 +1,2208 @@
+
+Actividad4.elf:     file format elf32-avr
+
+Sections:
+Idx Name          Size      VMA       LMA       File off  Algn
+  0 .data         00000002  00800100  00000d24  00000db8  2**0
+                  CONTENTS, ALLOC, LOAD, DATA
+  1 .text         00000d24  00000000  00000000  00000094  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+  2 .bss          00000209  00800102  00800102  00000dba  2**0
+                  ALLOC
+  3 .comment      00000030  00000000  00000000  00000dba  2**0
+                  CONTENTS, READONLY
+  4 .note.gnu.avr.deviceinfo 00000040  00000000  00000000  00000dec  2**2
+                  CONTENTS, READONLY
+  5 .debug_aranges 00000128  00000000  00000000  00000e2c  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  6 .debug_info   0000177e  00000000  00000000  00000f54  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  7 .debug_abbrev 00000b9e  00000000  00000000  000026d2  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  8 .debug_line   00000def  00000000  00000000  00003270  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  9 .debug_frame  000002f0  00000000  00000000  00004060  2**2
+                  CONTENTS, READONLY, DEBUGGING
+ 10 .debug_str    000006bc  00000000  00000000  00004350  2**0
+                  CONTENTS, READONLY, DEBUGGING
+ 11 .debug_loc    00000a17  00000000  00000000  00004a0c  2**0
+                  CONTENTS, READONLY, DEBUGGING
+ 12 .debug_ranges 00000118  00000000  00000000  00005423  2**0
+                  CONTENTS, READONLY, DEBUGGING
+
+Disassembly of section .text:
+
+00000000 <__vectors>:
+   0:	0c 94 3b 00 	jmp	0x76	; 0x76 <__ctors_end>
+   4:	0c 94 58 00 	jmp	0xb0	; 0xb0 <__bad_interrupt>
+   8:	0c 94 58 00 	jmp	0xb0	; 0xb0 <__bad_interrupt>
+   c:	0c 94 58 00 	jmp	0xb0	; 0xb0 <__bad_interrupt>
+  10:	0c 94 58 00 	jmp	0xb0	; 0xb0 <__bad_interrupt>
+  14:	0c 94 58 00 	jmp	0xb0	; 0xb0 <__bad_interrupt>
+  18:	0c 94 58 00 	jmp	0xb0	; 0xb0 <__bad_interrupt>
+  1c:	0c 94 58 00 	jmp	0xb0	; 0xb0 <__bad_interrupt>
+  20:	0c 94 58 00 	jmp	0xb0	; 0xb0 <__bad_interrupt>
+  24:	0c 94 58 00 	jmp	0xb0	; 0xb0 <__bad_interrupt>
+  28:	0c 94 58 00 	jmp	0xb0	; 0xb0 <__bad_interrupt>
+  2c:	0c 94 58 00 	jmp	0xb0	; 0xb0 <__bad_interrupt>
+  30:	0c 94 58 00 	jmp	0xb0	; 0xb0 <__bad_interrupt>
+  34:	0c 94 58 00 	jmp	0xb0	; 0xb0 <__bad_interrupt>
+  38:	0c 94 71 04 	jmp	0x8e2	; 0x8e2 <__vector_14>
+  3c:	0c 94 58 00 	jmp	0xb0	; 0xb0 <__bad_interrupt>
+  40:	0c 94 58 00 	jmp	0xb0	; 0xb0 <__bad_interrupt>
+  44:	0c 94 58 00 	jmp	0xb0	; 0xb0 <__bad_interrupt>
+  48:	0c 94 83 04 	jmp	0x906	; 0x906 <__vector_18>
+  4c:	0c 94 58 00 	jmp	0xb0	; 0xb0 <__bad_interrupt>
+  50:	0c 94 58 00 	jmp	0xb0	; 0xb0 <__bad_interrupt>
+  54:	0c 94 58 00 	jmp	0xb0	; 0xb0 <__bad_interrupt>
+  58:	0c 94 58 00 	jmp	0xb0	; 0xb0 <__bad_interrupt>
+  5c:	0c 94 58 00 	jmp	0xb0	; 0xb0 <__bad_interrupt>
+  60:	0c 94 58 00 	jmp	0xb0	; 0xb0 <__bad_interrupt>
+  64:	0c 94 58 00 	jmp	0xb0	; 0xb0 <__bad_interrupt>
+  68:	4c 05       	cpc	r20, r12
+  6a:	55 05       	cpc	r21, r5
+  6c:	62 05       	cpc	r22, r2
+  6e:	6f 05       	cpc	r22, r15
+  70:	7c 05       	cpc	r23, r12
+  72:	87 05       	cpc	r24, r7
+  74:	94 05       	cpc	r25, r4
+
+00000076 <__ctors_end>:
+  76:	11 24       	eor	r1, r1
+  78:	1f be       	out	0x3f, r1	; 63
+  7a:	cf ef       	ldi	r28, 0xFF	; 255
+  7c:	d8 e0       	ldi	r29, 0x08	; 8
+  7e:	de bf       	out	0x3e, r29	; 62
+  80:	cd bf       	out	0x3d, r28	; 61
+
+00000082 <__do_copy_data>:
+  82:	11 e0       	ldi	r17, 0x01	; 1
+  84:	a0 e0       	ldi	r26, 0x00	; 0
+  86:	b1 e0       	ldi	r27, 0x01	; 1
+  88:	e4 e2       	ldi	r30, 0x24	; 36
+  8a:	fd e0       	ldi	r31, 0x0D	; 13
+  8c:	02 c0       	rjmp	.+4      	; 0x92 <__do_copy_data+0x10>
+  8e:	05 90       	lpm	r0, Z+
+  90:	0d 92       	st	X+, r0
+  92:	a2 30       	cpi	r26, 0x02	; 2
+  94:	b1 07       	cpc	r27, r17
+  96:	d9 f7       	brne	.-10     	; 0x8e <__do_copy_data+0xc>
+
+00000098 <__do_clear_bss>:
+  98:	23 e0       	ldi	r18, 0x03	; 3
+  9a:	a2 e0       	ldi	r26, 0x02	; 2
+  9c:	b1 e0       	ldi	r27, 0x01	; 1
+  9e:	01 c0       	rjmp	.+2      	; 0xa2 <.do_clear_bss_start>
+
+000000a0 <.do_clear_bss_loop>:
+  a0:	1d 92       	st	X+, r1
+
+000000a2 <.do_clear_bss_start>:
+  a2:	ab 30       	cpi	r26, 0x0B	; 11
+  a4:	b2 07       	cpc	r27, r18
+  a6:	e1 f7       	brne	.-8      	; 0xa0 <.do_clear_bss_loop>
+  a8:	0e 94 ab 04 	call	0x956	; 0x956 <main>
+  ac:	0c 94 90 06 	jmp	0xd20	; 0xd20 <_exit>
+
+000000b0 <__bad_interrupt>:
+  b0:	0c 94 00 00 	jmp	0	; 0x0 <__vectors>
+
+000000b4 <botonesInit>:
+static _sBoton botones[MAX_BOTONES];
+static uint8_t cantBotones = 0;
+static uint8_t estadoAnterior[MAX_BOTONES];
+
+void botonesInit(void) {
+	cantBotones = 0;
+  b4:	10 92 0a 01 	sts	0x010A, r1	; 0x80010a <cantBotones>
+  b8:	08 95       	ret
+
+000000ba <botonesRegister>:
+}
+
+// Registra un botón en un pin específico y configura automáticamente el pin como entrada con resistencia pull-up
+// cb es una función que se llamará al detectar flanco ascendente.
+void botonesRegister(volatile uint8_t *pin, volatile uint8_t *port, volatile uint8_t *ddr, uint8_t mask, BtnCallback cb) {
+  ba:	0f 93       	push	r16
+  bc:	1f 93       	push	r17
+  be:	cf 93       	push	r28
+  c0:	df 93       	push	r29
+  c2:	ec 01       	movw	r28, r24
+	if (cantBotones >= MAX_BOTONES) return;
+  c4:	90 91 0a 01 	lds	r25, 0x010A	; 0x80010a <cantBotones>
+  c8:	98 30       	cpi	r25, 0x08	; 8
+  ca:	40 f5       	brcc	.+80     	; 0x11c <botonesRegister+0x62>
+
+	*ddr  &= ~mask; 
+  cc:	fa 01       	movw	r30, r20
+  ce:	80 81       	ld	r24, Z
+  d0:	32 2f       	mov	r19, r18
+  d2:	30 95       	com	r19
+  d4:	83 23       	and	r24, r19
+  d6:	80 83       	st	Z, r24
+	*port |=  mask;  
+  d8:	fb 01       	movw	r30, r22
+  da:	80 81       	ld	r24, Z
+  dc:	82 2b       	or	r24, r18
+  de:	80 83       	st	Z, r24
+
+	botones[cantBotones].pin  = pin;
+  e0:	a9 2f       	mov	r26, r25
+  e2:	b0 e0       	ldi	r27, 0x00	; 0
+  e4:	fd 01       	movw	r30, r26
+  e6:	ee 0f       	add	r30, r30
+  e8:	ff 1f       	adc	r31, r31
+  ea:	ee 0f       	add	r30, r30
+  ec:	ff 1f       	adc	r31, r31
+  ee:	ee 0f       	add	r30, r30
+  f0:	ff 1f       	adc	r31, r31
+  f2:	ea 0f       	add	r30, r26
+  f4:	fb 1f       	adc	r31, r27
+  f6:	e5 5f       	subi	r30, 0xF5	; 245
+  f8:	fe 4f       	sbci	r31, 0xFE	; 254
+  fa:	d1 83       	std	Z+1, r29	; 0x01
+  fc:	c0 83       	st	Z, r28
+	botones[cantBotones].port = port;
+  fe:	73 83       	std	Z+3, r23	; 0x03
+ 100:	62 83       	std	Z+2, r22	; 0x02
+	botones[cantBotones].ddr  = ddr;
+ 102:	55 83       	std	Z+5, r21	; 0x05
+ 104:	44 83       	std	Z+4, r20	; 0x04
+	botones[cantBotones].mask = mask;
+ 106:	26 83       	std	Z+6, r18	; 0x06
+	botones[cantBotones].cb   = cb;
+ 108:	10 87       	std	Z+8, r17	; 0x08
+ 10a:	07 83       	std	Z+7, r16	; 0x07
+
+	estadoAnterior[cantBotones] = *pin & mask;
+ 10c:	88 81       	ld	r24, Y
+ 10e:	ae 5f       	subi	r26, 0xFE	; 254
+ 110:	be 4f       	sbci	r27, 0xFE	; 254
+ 112:	28 23       	and	r18, r24
+ 114:	2c 93       	st	X, r18
+	cantBotones++;
+ 116:	9f 5f       	subi	r25, 0xFF	; 255
+ 118:	90 93 0a 01 	sts	0x010A, r25	; 0x80010a <cantBotones>
+}
+ 11c:	df 91       	pop	r29
+ 11e:	cf 91       	pop	r28
+ 120:	1f 91       	pop	r17
+ 122:	0f 91       	pop	r16
+ 124:	08 95       	ret
+
+00000126 <botonesUpdate>:
+
+// Actualiza el estado de todos los botones registrados.
+void botonesUpdate(void) {
+ 126:	0f 93       	push	r16
+ 128:	1f 93       	push	r17
+ 12a:	cf 93       	push	r28
+ 12c:	df 93       	push	r29
+	for (uint8_t i = 0; i < cantBotones; i++) {
+ 12e:	00 e0       	ldi	r16, 0x00	; 0
+ 130:	2e c0       	rjmp	.+92     	; 0x18e <botonesUpdate+0x68>
+		uint8_t actual  = *botones[i].pin & botones[i].mask;
+ 132:	c0 2f       	mov	r28, r16
+ 134:	d0 e0       	ldi	r29, 0x00	; 0
+ 136:	fe 01       	movw	r30, r28
+ 138:	ee 0f       	add	r30, r30
+ 13a:	ff 1f       	adc	r31, r31
+ 13c:	ee 0f       	add	r30, r30
+ 13e:	ff 1f       	adc	r31, r31
+ 140:	ee 0f       	add	r30, r30
+ 142:	ff 1f       	adc	r31, r31
+ 144:	ec 0f       	add	r30, r28
+ 146:	fd 1f       	adc	r31, r29
+ 148:	e5 5f       	subi	r30, 0xF5	; 245
+ 14a:	fe 4f       	sbci	r31, 0xFE	; 254
+ 14c:	a0 81       	ld	r26, Z
+ 14e:	b1 81       	ldd	r27, Z+1	; 0x01
+ 150:	1c 91       	ld	r17, X
+ 152:	86 81       	ldd	r24, Z+6	; 0x06
+ 154:	18 23       	and	r17, r24
+		uint8_t cambio  = actual ^ estadoAnterior[i];
+ 156:	fe 01       	movw	r30, r28
+ 158:	ee 5f       	subi	r30, 0xFE	; 254
+ 15a:	fe 4f       	sbci	r31, 0xFE	; 254
+ 15c:	80 81       	ld	r24, Z
+ 15e:	81 27       	eor	r24, r17
+		uint8_t flanco  = cambio & actual;  
+ 160:	81 23       	and	r24, r17
+		
+		if (flanco && botones[i].cb)
+ 162:	89 f0       	breq	.+34     	; 0x186 <botonesUpdate+0x60>
+ 164:	fe 01       	movw	r30, r28
+ 166:	ee 0f       	add	r30, r30
+ 168:	ff 1f       	adc	r31, r31
+ 16a:	ee 0f       	add	r30, r30
+ 16c:	ff 1f       	adc	r31, r31
+ 16e:	ee 0f       	add	r30, r30
+ 170:	ff 1f       	adc	r31, r31
+ 172:	ec 0f       	add	r30, r28
+ 174:	fd 1f       	adc	r31, r29
+ 176:	e5 5f       	subi	r30, 0xF5	; 245
+ 178:	fe 4f       	sbci	r31, 0xFE	; 254
+ 17a:	07 80       	ldd	r0, Z+7	; 0x07
+ 17c:	f0 85       	ldd	r31, Z+8	; 0x08
+ 17e:	e0 2d       	mov	r30, r0
+ 180:	30 97       	sbiw	r30, 0x00	; 0
+ 182:	09 f0       	breq	.+2      	; 0x186 <botonesUpdate+0x60>
+		botones[i].cb();
+ 184:	09 95       	icall
+		
+		estadoAnterior[i] = actual;
+ 186:	ce 5f       	subi	r28, 0xFE	; 254
+ 188:	de 4f       	sbci	r29, 0xFE	; 254
+ 18a:	18 83       	st	Y, r17
+	cantBotones++;
+}
+
+// Actualiza el estado de todos los botones registrados.
+void botonesUpdate(void) {
+	for (uint8_t i = 0; i < cantBotones; i++) {
+ 18c:	0f 5f       	subi	r16, 0xFF	; 255
+ 18e:	80 91 0a 01 	lds	r24, 0x010A	; 0x80010a <cantBotones>
+ 192:	08 17       	cp	r16, r24
+ 194:	70 f2       	brcs	.-100    	; 0x132 <botonesUpdate+0xc>
+		if (flanco && botones[i].cb)
+		botones[i].cb();
+		
+		estadoAnterior[i] = actual;
+	}
+ 196:	df 91       	pop	r29
+ 198:	cf 91       	pop	r28
+ 19a:	1f 91       	pop	r17
+ 19c:	0f 91       	pop	r16
+ 19e:	08 95       	ret
+
+000001a0 <pushFifo>:
+	_encode = cb;
+}
+
+// Agrega un destino al buffer circular FIFO de la salida indicada.
+static void pushFifo(uint8_t tramoId, uint8_t destino) {
+	if (tramos[tramoId].cantidad < MAX_CAJAS) {
+ 1a0:	90 e0       	ldi	r25, 0x00	; 0
+ 1a2:	27 e1       	ldi	r18, 0x17	; 23
+ 1a4:	28 9f       	mul	r18, r24
+ 1a6:	f0 01       	movw	r30, r0
+ 1a8:	29 9f       	mul	r18, r25
+ 1aa:	f0 0d       	add	r31, r0
+ 1ac:	11 24       	eor	r1, r1
+ 1ae:	ef 59       	subi	r30, 0x9F	; 159
+ 1b0:	fe 4f       	sbci	r31, 0xFE	; 254
+ 1b2:	26 89       	ldd	r18, Z+22	; 0x16
+ 1b4:	24 31       	cpi	r18, 0x14	; 20
+ 1b6:	b8 f4       	brcc	.+46     	; 0x1e6 <pushFifo+0x46>
+		tramos[tramoId].destinos[tramos[tramoId].indiceEscritura] = destino;
+ 1b8:	27 e1       	ldi	r18, 0x17	; 23
+ 1ba:	28 9f       	mul	r18, r24
+ 1bc:	f0 01       	movw	r30, r0
+ 1be:	29 9f       	mul	r18, r25
+ 1c0:	f0 0d       	add	r31, r0
+ 1c2:	11 24       	eor	r1, r1
+ 1c4:	ef 59       	subi	r30, 0x9F	; 159
+ 1c6:	fe 4f       	sbci	r31, 0xFE	; 254
+ 1c8:	85 89       	ldd	r24, Z+21	; 0x15
+ 1ca:	90 e0       	ldi	r25, 0x00	; 0
+ 1cc:	df 01       	movw	r26, r30
+ 1ce:	a8 0f       	add	r26, r24
+ 1d0:	b9 1f       	adc	r27, r25
+ 1d2:	6c 93       	st	X, r22
+		tramos[tramoId].indiceEscritura = (tramos[tramoId].indiceEscritura + 1) % MAX_CAJAS;
+ 1d4:	01 96       	adiw	r24, 0x01	; 1
+ 1d6:	64 e1       	ldi	r22, 0x14	; 20
+ 1d8:	70 e0       	ldi	r23, 0x00	; 0
+ 1da:	0e 94 62 06 	call	0xcc4	; 0xcc4 <__divmodhi4>
+ 1de:	85 8b       	std	Z+21, r24	; 0x15
+		tramos[tramoId].cantidad++;
+ 1e0:	86 89       	ldd	r24, Z+22	; 0x16
+ 1e2:	8f 5f       	subi	r24, 0xFF	; 255
+ 1e4:	86 8b       	std	Z+22, r24	; 0x16
+ 1e6:	08 95       	ret
+
+000001e8 <popFifo>:
+}
+
+// Extrae el destino más antiguo del buffer circular FIFO de la salida indicada
+// Retorna -1 si el buffer está vacío, indicando que no hay cajas encoladas
+static int8_t popFifo(uint8_t tramoId) {
+	if (tramos[tramoId].cantidad > 0) {
+ 1e8:	90 e0       	ldi	r25, 0x00	; 0
+ 1ea:	27 e1       	ldi	r18, 0x17	; 23
+ 1ec:	28 9f       	mul	r18, r24
+ 1ee:	f0 01       	movw	r30, r0
+ 1f0:	29 9f       	mul	r18, r25
+ 1f2:	f0 0d       	add	r31, r0
+ 1f4:	11 24       	eor	r1, r1
+ 1f6:	ef 59       	subi	r30, 0x9F	; 159
+ 1f8:	fe 4f       	sbci	r31, 0xFE	; 254
+ 1fa:	26 89       	ldd	r18, Z+22	; 0x16
+ 1fc:	22 23       	and	r18, r18
+ 1fe:	c9 f0       	breq	.+50     	; 0x232 <popFifo+0x4a>
+		uint8_t dest = tramos[tramoId].destinos[tramos[tramoId].indiceLectura];
+ 200:	27 e1       	ldi	r18, 0x17	; 23
+ 202:	28 9f       	mul	r18, r24
+ 204:	f0 01       	movw	r30, r0
+ 206:	29 9f       	mul	r18, r25
+ 208:	f0 0d       	add	r31, r0
+ 20a:	11 24       	eor	r1, r1
+ 20c:	ef 59       	subi	r30, 0x9F	; 159
+ 20e:	fe 4f       	sbci	r31, 0xFE	; 254
+ 210:	84 89       	ldd	r24, Z+20	; 0x14
+ 212:	90 e0       	ldi	r25, 0x00	; 0
+ 214:	df 01       	movw	r26, r30
+ 216:	a8 0f       	add	r26, r24
+ 218:	b9 1f       	adc	r27, r25
+ 21a:	2c 91       	ld	r18, X
+		tramos[tramoId].indiceLectura = (tramos[tramoId].indiceLectura + 1) % MAX_CAJAS;
+ 21c:	01 96       	adiw	r24, 0x01	; 1
+ 21e:	64 e1       	ldi	r22, 0x14	; 20
+ 220:	70 e0       	ldi	r23, 0x00	; 0
+ 222:	0e 94 62 06 	call	0xcc4	; 0xcc4 <__divmodhi4>
+ 226:	84 8b       	std	Z+20, r24	; 0x14
+		tramos[tramoId].cantidad--;
+ 228:	86 89       	ldd	r24, Z+22	; 0x16
+ 22a:	81 50       	subi	r24, 0x01	; 1
+ 22c:	86 8b       	std	Z+22, r24	; 0x16
+		return dest;
+ 22e:	82 2f       	mov	r24, r18
+ 230:	08 95       	ret
+	}
+	return -1;
+ 232:	8f ef       	ldi	r24, 0xFF	; 255
+}
+ 234:	08 95       	ret
+
+00000236 <Clasificador_SetEncode>:
+uint16_t cajasEntrada = 0;
+uint16_t cajasSalida = 0;
+_sBrazo brazos[3];
+
+void Clasificador_SetEncode(EncodeCallback cb) {
+	_encode = cb;
+ 236:	90 93 59 01 	sts	0x0159, r25	; 0x800159 <_encode+0x1>
+ 23a:	80 93 58 01 	sts	0x0158, r24	; 0x800158 <_encode>
+ 23e:	08 95       	ret
+
+00000240 <Clasificador_Init>:
+	}
+	return -1;
+}
+
+void Clasificador_Init(void) {
+	for (uint8_t i = 0; i < 3; i++) {
+ 240:	20 e0       	ldi	r18, 0x00	; 0
+ 242:	22 c0       	rjmp	.+68     	; 0x288 <Clasificador_Init+0x48>
+		tramos[i].indiceLectura = 0;
+ 244:	82 2f       	mov	r24, r18
+ 246:	90 e0       	ldi	r25, 0x00	; 0
+ 248:	37 e1       	ldi	r19, 0x17	; 23
+ 24a:	38 9f       	mul	r19, r24
+ 24c:	f0 01       	movw	r30, r0
+ 24e:	39 9f       	mul	r19, r25
+ 250:	f0 0d       	add	r31, r0
+ 252:	11 24       	eor	r1, r1
+ 254:	ef 59       	subi	r30, 0x9F	; 159
+ 256:	fe 4f       	sbci	r31, 0xFE	; 254
+ 258:	14 8a       	std	Z+20, r1	; 0x14
+		tramos[i].indiceEscritura = 0;
+ 25a:	15 8a       	std	Z+21, r1	; 0x15
+		tramos[i].cantidad = 0;
+ 25c:	16 8a       	std	Z+22, r1	; 0x16
+		brazos[i].activo = 0;
+ 25e:	fc 01       	movw	r30, r24
+ 260:	ee 0f       	add	r30, r30
+ 262:	ff 1f       	adc	r31, r31
+ 264:	ee 0f       	add	r30, r30
+ 266:	ff 1f       	adc	r31, r31
+ 268:	e0 51       	subi	r30, 0x10	; 16
+ 26a:	fe 4f       	sbci	r31, 0xFE	; 254
+ 26c:	10 82       	st	Z, r1
+		brazos[i].timer = 0;
+ 26e:	11 82       	std	Z+1, r1	; 0x01
+		configCajas[i] = 0;
+ 270:	fc 01       	movw	r30, r24
+ 272:	ea 55       	subi	r30, 0x5A	; 90
+ 274:	fe 4f       	sbci	r31, 0xFE	; 254
+ 276:	10 82       	st	Z, r1
+		sensorPendiente[i].pendiente = 0;
+ 278:	88 0f       	add	r24, r24
+ 27a:	99 1f       	adc	r25, r25
+ 27c:	fc 01       	movw	r30, r24
+ 27e:	e5 5a       	subi	r30, 0xA5	; 165
+ 280:	fe 4f       	sbci	r31, 0xFE	; 254
+ 282:	10 82       	st	Z, r1
+		sensorPendiente[i].outNum = 0;
+ 284:	11 82       	std	Z+1, r1	; 0x01
+	}
+	return -1;
+}
+
+void Clasificador_Init(void) {
+	for (uint8_t i = 0; i < 3; i++) {
+ 286:	2f 5f       	subi	r18, 0xFF	; 255
+ 288:	23 30       	cpi	r18, 0x03	; 3
+ 28a:	e0 f2       	brcs	.-72     	; 0x244 <Clasificador_Init+0x4>
+		brazos[i].timer = 0;
+		configCajas[i] = 0;
+		sensorPendiente[i].pendiente = 0;
+		sensorPendiente[i].outNum = 0;
+	}
+}
+ 28c:	08 95       	ret
+
+0000028e <Clasificador_On2Ms>:
+
+void Clasificador_On2Ms(void) {
+	for (uint8_t i = 0; i < 3; i++) {
+ 28e:	80 e0       	ldi	r24, 0x00	; 0
+ 290:	20 c0       	rjmp	.+64     	; 0x2d2 <Clasificador_On2Ms+0x44>
+		if (brazos[i].activo && brazos[i].timer > 0)
+ 292:	28 2f       	mov	r18, r24
+ 294:	30 e0       	ldi	r19, 0x00	; 0
+ 296:	f9 01       	movw	r30, r18
+ 298:	ee 0f       	add	r30, r30
+ 29a:	ff 1f       	adc	r31, r31
+ 29c:	ee 0f       	add	r30, r30
+ 29e:	ff 1f       	adc	r31, r31
+ 2a0:	e0 51       	subi	r30, 0x10	; 16
+ 2a2:	fe 4f       	sbci	r31, 0xFE	; 254
+ 2a4:	90 81       	ld	r25, Z
+ 2a6:	99 23       	and	r25, r25
+ 2a8:	99 f0       	breq	.+38     	; 0x2d0 <Clasificador_On2Ms+0x42>
+ 2aa:	f9 01       	movw	r30, r18
+ 2ac:	ee 0f       	add	r30, r30
+ 2ae:	ff 1f       	adc	r31, r31
+ 2b0:	ee 0f       	add	r30, r30
+ 2b2:	ff 1f       	adc	r31, r31
+ 2b4:	e0 51       	subi	r30, 0x10	; 16
+ 2b6:	fe 4f       	sbci	r31, 0xFE	; 254
+ 2b8:	91 81       	ldd	r25, Z+1	; 0x01
+ 2ba:	99 23       	and	r25, r25
+ 2bc:	49 f0       	breq	.+18     	; 0x2d0 <Clasificador_On2Ms+0x42>
+		brazos[i].timer--;
+ 2be:	22 0f       	add	r18, r18
+ 2c0:	33 1f       	adc	r19, r19
+ 2c2:	22 0f       	add	r18, r18
+ 2c4:	33 1f       	adc	r19, r19
+ 2c6:	f9 01       	movw	r30, r18
+ 2c8:	e0 51       	subi	r30, 0x10	; 16
+ 2ca:	fe 4f       	sbci	r31, 0xFE	; 254
+ 2cc:	91 50       	subi	r25, 0x01	; 1
+ 2ce:	91 83       	std	Z+1, r25	; 0x01
+		sensorPendiente[i].outNum = 0;
+	}
+}
+
+void Clasificador_On2Ms(void) {
+	for (uint8_t i = 0; i < 3; i++) {
+ 2d0:	8f 5f       	subi	r24, 0xFF	; 255
+ 2d2:	83 30       	cpi	r24, 0x03	; 3
+ 2d4:	f0 f2       	brcs	.-68     	; 0x292 <Clasificador_On2Ms+0x4>
+		if (brazos[i].activo && brazos[i].timer > 0)
+		brazos[i].timer--;
+	}
+}
+ 2d6:	08 95       	ret
+
+000002d8 <checkBrazos>:
+
+// Evalúa el estado de los brazos y ejecuta las transiciones de la máquina de estados
+// Estados: 0=retraído, 1=extendido, 2=esperando ACK de retracción
+// Cuando el timer llega a 0 estando extendido, envía comando de retraer al simulador
+void checkBrazos(void) {
+ 2d8:	ef 92       	push	r14
+ 2da:	ff 92       	push	r15
+ 2dc:	1f 93       	push	r17
+ 2de:	cf 93       	push	r28
+ 2e0:	df 93       	push	r29
+ 2e2:	00 d0       	rcall	.+0      	; 0x2e4 <checkBrazos+0xc>
+ 2e4:	cd b7       	in	r28, 0x3d	; 61
+ 2e6:	de b7       	in	r29, 0x3e	; 62
+	for (uint8_t i = 0; i < 3; i++) {
+ 2e8:	10 e0       	ldi	r17, 0x00	; 0
+ 2ea:	4b c0       	rjmp	.+150    	; 0x382 <checkBrazos+0xaa>
+		if (brazos[i].activo && brazos[i].timer > 0) {
+ 2ec:	e1 2e       	mov	r14, r17
+ 2ee:	f1 2c       	mov	r15, r1
+ 2f0:	f7 01       	movw	r30, r14
+ 2f2:	ee 0f       	add	r30, r30
+ 2f4:	ff 1f       	adc	r31, r31
+ 2f6:	ee 0f       	add	r30, r30
+ 2f8:	ff 1f       	adc	r31, r31
+ 2fa:	e0 51       	subi	r30, 0x10	; 16
+ 2fc:	fe 4f       	sbci	r31, 0xFE	; 254
+ 2fe:	80 81       	ld	r24, Z
+ 300:	88 23       	and	r24, r24
+ 302:	51 f0       	breq	.+20     	; 0x318 <checkBrazos+0x40>
+ 304:	f7 01       	movw	r30, r14
+ 306:	ee 0f       	add	r30, r30
+ 308:	ff 1f       	adc	r31, r31
+ 30a:	ee 0f       	add	r30, r30
+ 30c:	ff 1f       	adc	r31, r31
+ 30e:	e0 51       	subi	r30, 0x10	; 16
+ 310:	fe 4f       	sbci	r31, 0xFE	; 254
+ 312:	91 81       	ldd	r25, Z+1	; 0x01
+ 314:	91 11       	cpse	r25, r1
+ 316:	34 c0       	rjmp	.+104    	; 0x380 <checkBrazos+0xa8>
+			} else if (brazos[i].activo && brazos[i].timer == 0 && brazos[i].estado == 1) {
+ 318:	88 23       	and	r24, r24
+ 31a:	91 f1       	breq	.+100    	; 0x380 <checkBrazos+0xa8>
+ 31c:	f7 01       	movw	r30, r14
+ 31e:	ee 0f       	add	r30, r30
+ 320:	ff 1f       	adc	r31, r31
+ 322:	ee 0f       	add	r30, r30
+ 324:	ff 1f       	adc	r31, r31
+ 326:	e0 51       	subi	r30, 0x10	; 16
+ 328:	fe 4f       	sbci	r31, 0xFE	; 254
+ 32a:	81 81       	ldd	r24, Z+1	; 0x01
+ 32c:	81 11       	cpse	r24, r1
+ 32e:	28 c0       	rjmp	.+80     	; 0x380 <checkBrazos+0xa8>
+ 330:	f7 01       	movw	r30, r14
+ 332:	ee 0f       	add	r30, r30
+ 334:	ff 1f       	adc	r31, r31
+ 336:	ee 0f       	add	r30, r30
+ 338:	ff 1f       	adc	r31, r31
+ 33a:	e0 51       	subi	r30, 0x10	; 16
+ 33c:	fe 4f       	sbci	r31, 0xFE	; 254
+ 33e:	82 81       	ldd	r24, Z+2	; 0x02
+ 340:	81 30       	cpi	r24, 0x01	; 1
+ 342:	f1 f4       	brne	.+60     	; 0x380 <checkBrazos+0xa8>
+			if (_encode) {
+ 344:	e0 91 58 01 	lds	r30, 0x0158	; 0x800158 <_encode>
+ 348:	f0 91 59 01 	lds	r31, 0x0159	; 0x800159 <_encode+0x1>
+ 34c:	30 97       	sbiw	r30, 0x00	; 0
+ 34e:	69 f0       	breq	.+26     	; 0x36a <checkBrazos+0x92>
+				uint8_t payload[2];
+				payload[0] = (1 << i);
+ 350:	0e 2c       	mov	r0, r14
+ 352:	01 c0       	rjmp	.+2      	; 0x356 <checkBrazos+0x7e>
+ 354:	88 0f       	add	r24, r24
+ 356:	0a 94       	dec	r0
+ 358:	ea f7       	brpl	.-6      	; 0x354 <checkBrazos+0x7c>
+ 35a:	89 83       	std	Y+1, r24	; 0x01
+				payload[1] = 0x00; 
+ 35c:	1a 82       	std	Y+2, r1	; 0x02
+				_encode(0x52, payload, 2);
+ 35e:	42 e0       	ldi	r20, 0x02	; 2
+ 360:	be 01       	movw	r22, r28
+ 362:	6f 5f       	subi	r22, 0xFF	; 255
+ 364:	7f 4f       	sbci	r23, 0xFF	; 255
+ 366:	82 e5       	ldi	r24, 0x52	; 82
+ 368:	09 95       	icall
+			}
+			brazos[i].estado = 2;  
+ 36a:	f7 01       	movw	r30, r14
+ 36c:	ee 0f       	add	r30, r30
+ 36e:	ff 1f       	adc	r31, r31
+ 370:	ee 0f       	add	r30, r30
+ 372:	ff 1f       	adc	r31, r31
+ 374:	e0 51       	subi	r30, 0x10	; 16
+ 376:	fe 4f       	sbci	r31, 0xFE	; 254
+ 378:	82 e0       	ldi	r24, 0x02	; 2
+ 37a:	82 83       	std	Z+2, r24	; 0x02
+			brazos[i].timer = 125;
+ 37c:	8d e7       	ldi	r24, 0x7D	; 125
+ 37e:	81 83       	std	Z+1, r24	; 0x01
+
+// Evalúa el estado de los brazos y ejecuta las transiciones de la máquina de estados
+// Estados: 0=retraído, 1=extendido, 2=esperando ACK de retracción
+// Cuando el timer llega a 0 estando extendido, envía comando de retraer al simulador
+void checkBrazos(void) {
+	for (uint8_t i = 0; i < 3; i++) {
+ 380:	1f 5f       	subi	r17, 0xFF	; 255
+ 382:	13 30       	cpi	r17, 0x03	; 3
+ 384:	08 f4       	brcc	.+2      	; 0x388 <checkBrazos+0xb0>
+ 386:	b2 cf       	rjmp	.-156    	; 0x2ec <checkBrazos+0x14>
+			}
+			brazos[i].estado = 2;  
+			brazos[i].timer = 125;
+		}
+	}
+}
+ 388:	0f 90       	pop	r0
+ 38a:	0f 90       	pop	r0
+ 38c:	df 91       	pop	r29
+ 38e:	cf 91       	pop	r28
+ 390:	1f 91       	pop	r17
+ 392:	ff 90       	pop	r15
+ 394:	ef 90       	pop	r14
+ 396:	08 95       	ret
+
+00000398 <CmdParser>:
+
+void CmdParser(uint8_t cmd, uint8_t* params, uint8_t len) {
+ 398:	bf 92       	push	r11
+ 39a:	cf 92       	push	r12
+ 39c:	df 92       	push	r13
+ 39e:	ef 92       	push	r14
+ 3a0:	ff 92       	push	r15
+ 3a2:	0f 93       	push	r16
+ 3a4:	1f 93       	push	r17
+ 3a6:	cf 93       	push	r28
+ 3a8:	df 93       	push	r29
+ 3aa:	00 d0       	rcall	.+0      	; 0x3ac <CmdParser+0x14>
+ 3ac:	cd b7       	in	r28, 0x3d	; 61
+ 3ae:	de b7       	in	r29, 0x3e	; 62
+	switch(cmd) {
+ 3b0:	83 35       	cpi	r24, 0x53	; 83
+ 3b2:	09 f4       	brne	.+2      	; 0x3b6 <CmdParser+0x1e>
+ 3b4:	da c0       	rjmp	.+436    	; 0x56a <__EEPROM_REGION_LENGTH__+0x16a>
+ 3b6:	e4 2e       	mov	r14, r20
+ 3b8:	8b 01       	movw	r16, r22
+ 3ba:	84 35       	cpi	r24, 0x54	; 84
+ 3bc:	40 f4       	brcc	.+16     	; 0x3ce <CmdParser+0x36>
+ 3be:	81 35       	cpi	r24, 0x51	; 81
+ 3c0:	09 f4       	brne	.+2      	; 0x3c4 <CmdParser+0x2c>
+ 3c2:	4f c0       	rjmp	.+158    	; 0x462 <__EEPROM_REGION_LENGTH__+0x62>
+ 3c4:	08 f0       	brcs	.+2      	; 0x3c8 <CmdParser+0x30>
+ 3c6:	66 c0       	rjmp	.+204    	; 0x494 <__EEPROM_REGION_LENGTH__+0x94>
+ 3c8:	80 35       	cpi	r24, 0x50	; 80
+ 3ca:	99 f0       	breq	.+38     	; 0x3f2 <CmdParser+0x5a>
+ 3cc:	95 c1       	rjmp	.+810    	; 0x6f8 <__EEPROM_REGION_LENGTH__+0x2f8>
+ 3ce:	8f 35       	cpi	r24, 0x5F	; 95
+ 3d0:	09 f4       	brne	.+2      	; 0x3d4 <CmdParser+0x3c>
+ 3d2:	4c c1       	rjmp	.+664    	; 0x66c <__EEPROM_REGION_LENGTH__+0x26c>
+ 3d4:	80 3f       	cpi	r24, 0xF0	; 240
+ 3d6:	21 f0       	breq	.+8      	; 0x3e0 <CmdParser+0x48>
+ 3d8:	8e 35       	cpi	r24, 0x5E	; 94
+ 3da:	09 f0       	breq	.+2      	; 0x3de <CmdParser+0x46>
+ 3dc:	8d c1       	rjmp	.+794    	; 0x6f8 <__EEPROM_REGION_LENGTH__+0x2f8>
+ 3de:	41 c1       	rjmp	.+642    	; 0x662 <__EEPROM_REGION_LENGTH__+0x262>
+		case 0xF0:
+			if (params[0] == 0x0D) {
+ 3e0:	db 01       	movw	r26, r22
+ 3e2:	8c 91       	ld	r24, X
+ 3e4:	8d 30       	cpi	r24, 0x0D	; 13
+ 3e6:	09 f0       	breq	.+2      	; 0x3ea <CmdParser+0x52>
+ 3e8:	87 c1       	rjmp	.+782    	; 0x6f8 <__EEPROM_REGION_LENGTH__+0x2f8>
+				sistemaListo = 1;
+ 3ea:	81 e0       	ldi	r24, 0x01	; 1
+ 3ec:	80 93 57 01 	sts	0x0157, r24	; 0x800157 <sistemaListo>
+ 3f0:	83 c1       	rjmp	.+774    	; 0x6f8 <__EEPROM_REGION_LENGTH__+0x2f8>
+				aliveTimeout = 0;  
+			}
+		break;
+        case 0x50:
+			if (len >= 4) {
+ 3f2:	b3 e0       	ldi	r27, 0x03	; 3
+ 3f4:	b4 17       	cp	r27, r20
+ 3f6:	08 f0       	brcs	.+2      	; 0x3fa <CmdParser+0x62>
+ 3f8:	7f c1       	rjmp	.+766    	; 0x6f8 <__EEPROM_REGION_LENGTH__+0x2f8>
+			    configCajas[0] = params[1];
+ 3fa:	e6 ea       	ldi	r30, 0xA6	; 166
+ 3fc:	f1 e0       	ldi	r31, 0x01	; 1
+ 3fe:	db 01       	movw	r26, r22
+ 400:	11 96       	adiw	r26, 0x01	; 1
+ 402:	8c 91       	ld	r24, X
+ 404:	11 97       	sbiw	r26, 0x01	; 1
+ 406:	80 83       	st	Z, r24
+			    configCajas[1] = params[2];
+ 408:	12 96       	adiw	r26, 0x02	; 2
+ 40a:	8c 91       	ld	r24, X
+ 40c:	12 97       	sbiw	r26, 0x02	; 2
+ 40e:	81 83       	std	Z+1, r24	; 0x01
+			    configCajas[2] = params[3];
+ 410:	13 96       	adiw	r26, 0x03	; 3
+ 412:	8c 91       	ld	r24, X
+ 414:	82 83       	std	Z+2, r24	; 0x02
+
+			    for (uint8_t i = 0; i < 3; i++) {
+ 416:	20 e0       	ldi	r18, 0x00	; 0
+ 418:	1f c0       	rjmp	.+62     	; 0x458 <__EEPROM_REGION_LENGTH__+0x58>
+			        tramos[i].indiceLectura = 0;
+ 41a:	82 2f       	mov	r24, r18
+ 41c:	90 e0       	ldi	r25, 0x00	; 0
+ 41e:	37 e1       	ldi	r19, 0x17	; 23
+ 420:	38 9f       	mul	r19, r24
+ 422:	f0 01       	movw	r30, r0
+ 424:	39 9f       	mul	r19, r25
+ 426:	f0 0d       	add	r31, r0
+ 428:	11 24       	eor	r1, r1
+ 42a:	ef 59       	subi	r30, 0x9F	; 159
+ 42c:	fe 4f       	sbci	r31, 0xFE	; 254
+ 42e:	14 8a       	std	Z+20, r1	; 0x14
+			        tramos[i].indiceEscritura = 0;
+ 430:	15 8a       	std	Z+21, r1	; 0x15
+			        tramos[i].cantidad = 0;
+ 432:	16 8a       	std	Z+22, r1	; 0x16
+			        brazos[i].activo = 0;
+ 434:	fc 01       	movw	r30, r24
+ 436:	ee 0f       	add	r30, r30
+ 438:	ff 1f       	adc	r31, r31
+ 43a:	ee 0f       	add	r30, r30
+ 43c:	ff 1f       	adc	r31, r31
+ 43e:	e0 51       	subi	r30, 0x10	; 16
+ 440:	fe 4f       	sbci	r31, 0xFE	; 254
+ 442:	10 82       	st	Z, r1
+			        brazos[i].timer = 0;
+ 444:	11 82       	std	Z+1, r1	; 0x01
+			        brazos[i].estado = 0;
+ 446:	12 82       	std	Z+2, r1	; 0x02
+			        brazos[i].pendiente = 0;
+ 448:	13 82       	std	Z+3, r1	; 0x03
+			        sensorPendiente[i].pendiente = 0;
+ 44a:	88 0f       	add	r24, r24
+ 44c:	99 1f       	adc	r25, r25
+ 44e:	fc 01       	movw	r30, r24
+ 450:	e5 5a       	subi	r30, 0xA5	; 165
+ 452:	fe 4f       	sbci	r31, 0xFE	; 254
+ 454:	10 82       	st	Z, r1
+			if (len >= 4) {
+			    configCajas[0] = params[1];
+			    configCajas[1] = params[2];
+			    configCajas[2] = params[3];
+
+			    for (uint8_t i = 0; i < 3; i++) {
+ 456:	2f 5f       	subi	r18, 0xFF	; 255
+ 458:	23 30       	cpi	r18, 0x03	; 3
+ 45a:	f8 f2       	brcs	.-66     	; 0x41a <__EEPROM_REGION_LENGTH__+0x1a>
+			        brazos[i].timer = 0;
+			        brazos[i].estado = 0;
+			        brazos[i].pendiente = 0;
+			        sensorPendiente[i].pendiente = 0;
+			    }
+			    ledMode = 0;
+ 45c:	10 92 ef 01 	sts	0x01EF, r1	; 0x8001ef <ledMode>
+ 460:	4b c1       	rjmp	.+662    	; 0x6f8 <__EEPROM_REGION_LENGTH__+0x2f8>
+			}
+        break;
+        case 0x51:  
+			if (params[0] == 0x0D) {
+ 462:	fb 01       	movw	r30, r22
+ 464:	80 81       	ld	r24, Z
+ 466:	8d 30       	cpi	r24, 0x0D	; 13
+ 468:	09 f0       	breq	.+2      	; 0x46c <__EEPROM_REGION_LENGTH__+0x6c>
+ 46a:	46 c1       	rjmp	.+652    	; 0x6f8 <__EEPROM_REGION_LENGTH__+0x2f8>
+				ledMode = 1;
+ 46c:	81 e0       	ldi	r24, 0x01	; 1
+ 46e:	80 93 ef 01 	sts	0x01EF, r24	; 0x8001ef <ledMode>
+				for (uint8_t i = 0; i < 3; i++) {
+ 472:	80 e0       	ldi	r24, 0x00	; 0
+ 474:	0c c0       	rjmp	.+24     	; 0x48e <__EEPROM_REGION_LENGTH__+0x8e>
+					brazos[i].activo = 0;
+ 476:	e8 2f       	mov	r30, r24
+ 478:	f0 e0       	ldi	r31, 0x00	; 0
+ 47a:	ee 0f       	add	r30, r30
+ 47c:	ff 1f       	adc	r31, r31
+ 47e:	ee 0f       	add	r30, r30
+ 480:	ff 1f       	adc	r31, r31
+ 482:	e0 51       	subi	r30, 0x10	; 16
+ 484:	fe 4f       	sbci	r31, 0xFE	; 254
+ 486:	10 82       	st	Z, r1
+					brazos[i].timer = 0;
+ 488:	11 82       	std	Z+1, r1	; 0x01
+					brazos[i].estado = 0;
+ 48a:	12 82       	std	Z+2, r1	; 0x02
+			}
+        break;
+        case 0x51:  
+			if (params[0] == 0x0D) {
+				ledMode = 1;
+				for (uint8_t i = 0; i < 3; i++) {
+ 48c:	8f 5f       	subi	r24, 0xFF	; 255
+ 48e:	83 30       	cpi	r24, 0x03	; 3
+ 490:	90 f3       	brcs	.-28     	; 0x476 <__EEPROM_REGION_LENGTH__+0x76>
+ 492:	32 c1       	rjmp	.+612    	; 0x6f8 <__EEPROM_REGION_LENGTH__+0x2f8>
+        break;
+		// Busca el brazo que estaba esperando confirmación (estado = 2) y lo libera.
+		// Si había una caja pendiente en esa salida, la procesa de inmediato:
+		// Extrae del FIFO, si coincide activa el brazo, si no transfiere al siguiente.
+        case 0x52:
+			if (params[0] == 0xFF) {
+ 494:	db 01       	movw	r26, r22
+ 496:	8c 91       	ld	r24, X
+ 498:	8f 3f       	cpi	r24, 0xFF	; 255
+ 49a:	09 f0       	breq	.+2      	; 0x49e <__EEPROM_REGION_LENGTH__+0x9e>
+ 49c:	2d c1       	rjmp	.+602    	; 0x6f8 <__EEPROM_REGION_LENGTH__+0x2f8>
+ 49e:	60 c0       	rjmp	.+192    	; 0x560 <__EEPROM_REGION_LENGTH__+0x160>
+			    for (uint8_t i = 0; i < 3; i++) {
+			        if (brazos[i].estado == 2) {
+ 4a0:	e1 2e       	mov	r14, r17
+ 4a2:	f1 2c       	mov	r15, r1
+ 4a4:	f7 01       	movw	r30, r14
+ 4a6:	ee 0f       	add	r30, r30
+ 4a8:	ff 1f       	adc	r31, r31
+ 4aa:	ee 0f       	add	r30, r30
+ 4ac:	ff 1f       	adc	r31, r31
+ 4ae:	e0 51       	subi	r30, 0x10	; 16
+ 4b0:	fe 4f       	sbci	r31, 0xFE	; 254
+ 4b2:	82 81       	ldd	r24, Z+2	; 0x02
+ 4b4:	82 30       	cpi	r24, 0x02	; 2
+ 4b6:	09 f0       	breq	.+2      	; 0x4ba <__EEPROM_REGION_LENGTH__+0xba>
+ 4b8:	51 c0       	rjmp	.+162    	; 0x55c <__EEPROM_REGION_LENGTH__+0x15c>
+				        brazos[i].estado = 0;     
+ 4ba:	f7 01       	movw	r30, r14
+ 4bc:	ee 0f       	add	r30, r30
+ 4be:	ff 1f       	adc	r31, r31
+ 4c0:	ee 0f       	add	r30, r30
+ 4c2:	ff 1f       	adc	r31, r31
+ 4c4:	e0 51       	subi	r30, 0x10	; 16
+ 4c6:	fe 4f       	sbci	r31, 0xFE	; 254
+ 4c8:	12 82       	std	Z+2, r1	; 0x02
+				        brazos[i].activo = 0;
+ 4ca:	10 82       	st	Z, r1
+				        brazos[i].timer = 0;
+ 4cc:	11 82       	std	Z+1, r1	; 0x01
+				        if (sensorPendiente[i].pendiente) {
+ 4ce:	f7 01       	movw	r30, r14
+ 4d0:	ee 0f       	add	r30, r30
+ 4d2:	ff 1f       	adc	r31, r31
+ 4d4:	e5 5a       	subi	r30, 0xA5	; 165
+ 4d6:	fe 4f       	sbci	r31, 0xFE	; 254
+ 4d8:	80 81       	ld	r24, Z
+ 4da:	88 23       	and	r24, r24
+ 4dc:	09 f4       	brne	.+2      	; 0x4e0 <__EEPROM_REGION_LENGTH__+0xe0>
+ 4de:	0c c1       	rjmp	.+536    	; 0x6f8 <__EEPROM_REGION_LENGTH__+0x2f8>
+					        sensorPendiente[i].pendiente = 0;
+ 4e0:	f7 01       	movw	r30, r14
+ 4e2:	ee 0f       	add	r30, r30
+ 4e4:	ff 1f       	adc	r31, r31
+ 4e6:	e5 5a       	subi	r30, 0xA5	; 165
+ 4e8:	fe 4f       	sbci	r31, 0xFE	; 254
+ 4ea:	10 82       	st	Z, r1
+					        int8_t dest = popFifo(i);
+ 4ec:	81 2f       	mov	r24, r17
+ 4ee:	0e 94 f4 00 	call	0x1e8	; 0x1e8 <popFifo>
+					        if (dest != -1) {
+ 4f2:	8f 3f       	cpi	r24, 0xFF	; 255
+ 4f4:	09 f4       	brne	.+2      	; 0x4f8 <__EEPROM_REGION_LENGTH__+0xf8>
+ 4f6:	00 c1       	rjmp	.+512    	; 0x6f8 <__EEPROM_REGION_LENGTH__+0x2f8>
+						        if (dest == i) {
+ 4f8:	28 2f       	mov	r18, r24
+ 4fa:	08 2e       	mov	r0, r24
+ 4fc:	00 0c       	add	r0, r0
+ 4fe:	33 0b       	sbc	r19, r19
+ 500:	e2 16       	cp	r14, r18
+ 502:	f3 06       	cpc	r15, r19
+ 504:	11 f5       	brne	.+68     	; 0x54a <__EEPROM_REGION_LENGTH__+0x14a>
+							        if (_encode) {
+ 506:	e0 91 58 01 	lds	r30, 0x0158	; 0x800158 <_encode>
+ 50a:	f0 91 59 01 	lds	r31, 0x0159	; 0x800159 <_encode+0x1>
+ 50e:	30 97       	sbiw	r30, 0x00	; 0
+ 510:	79 f0       	breq	.+30     	; 0x530 <__EEPROM_REGION_LENGTH__+0x130>
+								        uint8_t payload[2];
+								        payload[0] = (1 << i);
+ 512:	81 e0       	ldi	r24, 0x01	; 1
+ 514:	90 e0       	ldi	r25, 0x00	; 0
+ 516:	02 c0       	rjmp	.+4      	; 0x51c <__EEPROM_REGION_LENGTH__+0x11c>
+ 518:	88 0f       	add	r24, r24
+ 51a:	99 1f       	adc	r25, r25
+ 51c:	1a 95       	dec	r17
+ 51e:	e2 f7       	brpl	.-8      	; 0x518 <__EEPROM_REGION_LENGTH__+0x118>
+ 520:	89 83       	std	Y+1, r24	; 0x01
+								        payload[1] = (1 << i);
+ 522:	8a 83       	std	Y+2, r24	; 0x02
+								        _encode(0x52, payload, 2);
+ 524:	42 e0       	ldi	r20, 0x02	; 2
+ 526:	be 01       	movw	r22, r28
+ 528:	6f 5f       	subi	r22, 0xFF	; 255
+ 52a:	7f 4f       	sbci	r23, 0xFF	; 255
+ 52c:	82 e5       	ldi	r24, 0x52	; 82
+ 52e:	09 95       	icall
+							        }
+							        brazos[i].activo = 1;
+ 530:	f7 01       	movw	r30, r14
+ 532:	ee 0f       	add	r30, r30
+ 534:	ff 1f       	adc	r31, r31
+ 536:	ee 0f       	add	r30, r30
+ 538:	ff 1f       	adc	r31, r31
+ 53a:	e0 51       	subi	r30, 0x10	; 16
+ 53c:	fe 4f       	sbci	r31, 0xFE	; 254
+ 53e:	81 e0       	ldi	r24, 0x01	; 1
+ 540:	80 83       	st	Z, r24
+							        brazos[i].timer = 125;
+ 542:	9d e7       	ldi	r25, 0x7D	; 125
+ 544:	91 83       	std	Z+1, r25	; 0x01
+							        brazos[i].estado = 1;
+ 546:	82 83       	std	Z+2, r24	; 0x02
+ 548:	d7 c0       	rjmp	.+430    	; 0x6f8 <__EEPROM_REGION_LENGTH__+0x2f8>
+							        } else if (i < 2) {
+ 54a:	12 30       	cpi	r17, 0x02	; 2
+ 54c:	08 f0       	brcs	.+2      	; 0x550 <__EEPROM_REGION_LENGTH__+0x150>
+ 54e:	d4 c0       	rjmp	.+424    	; 0x6f8 <__EEPROM_REGION_LENGTH__+0x2f8>
+							        pushFifo(i + 1, dest);
+ 550:	68 2f       	mov	r22, r24
+ 552:	81 e0       	ldi	r24, 0x01	; 1
+ 554:	81 0f       	add	r24, r17
+ 556:	0e 94 d0 00 	call	0x1a0	; 0x1a0 <pushFifo>
+ 55a:	ce c0       	rjmp	.+412    	; 0x6f8 <__EEPROM_REGION_LENGTH__+0x2f8>
+		// Busca el brazo que estaba esperando confirmación (estado = 2) y lo libera.
+		// Si había una caja pendiente en esa salida, la procesa de inmediato:
+		// Extrae del FIFO, si coincide activa el brazo, si no transfiere al siguiente.
+        case 0x52:
+			if (params[0] == 0xFF) {
+			    for (uint8_t i = 0; i < 3; i++) {
+ 55c:	1f 5f       	subi	r17, 0xFF	; 255
+ 55e:	01 c0       	rjmp	.+2      	; 0x562 <__EEPROM_REGION_LENGTH__+0x162>
+ 560:	10 e0       	ldi	r17, 0x00	; 0
+ 562:	13 30       	cpi	r17, 0x03	; 3
+ 564:	08 f4       	brcc	.+2      	; 0x568 <__EEPROM_REGION_LENGTH__+0x168>
+ 566:	9c cf       	rjmp	.-200    	; 0x4a0 <__EEPROM_REGION_LENGTH__+0xa0>
+ 568:	c7 c0       	rjmp	.+398    	; 0x6f8 <__EEPROM_REGION_LENGTH__+0x2f8>
+			        }
+			    }
+			}
+        break;
+        case 0x53:
+		    if (params[0] == 0x0D) {
+ 56a:	fb 01       	movw	r30, r22
+ 56c:	80 81       	ld	r24, Z
+ 56e:	8d 30       	cpi	r24, 0x0D	; 13
+ 570:	19 f4       	brne	.+6      	; 0x578 <__EEPROM_REGION_LENGTH__+0x178>
+			    ledMode = 0;
+ 572:	10 92 ef 01 	sts	0x01EF, r1	; 0x8001ef <ledMode>
+ 576:	c0 c0       	rjmp	.+384    	; 0x6f8 <__EEPROM_REGION_LENGTH__+0x2f8>
+			    } else if (params[0] == 0x0A) {
+ 578:	8a 30       	cpi	r24, 0x0A	; 10
+ 57a:	09 f0       	breq	.+2      	; 0x57e <__EEPROM_REGION_LENGTH__+0x17e>
+ 57c:	bd c0       	rjmp	.+378    	; 0x6f8 <__EEPROM_REGION_LENGTH__+0x2f8>
+			    ledMode = 2;
+ 57e:	82 e0       	ldi	r24, 0x02	; 2
+ 580:	80 93 ef 01 	sts	0x01EF, r24	; 0x8001ef <ledMode>
+ 584:	b9 c0       	rjmp	.+370    	; 0x6f8 <__EEPROM_REGION_LENGTH__+0x2f8>
+		// b) Si coincide (dest == outNum), se activa el brazo: es la salida correcta.
+		// c) Si no coincide (outNum < 2), se transfiere al FIFO de la siguiente salida.
+		// d) Si el FIFO está vacío, se guarda como pendiente hasta que llegue una caja.
+        case 0x5E:  
+			for (uint8_t i = 0; i < len; i += 2) {
+				uint8_t outNum = params[i];
+ 586:	8f 2d       	mov	r24, r15
+ 588:	90 e0       	ldi	r25, 0x00	; 0
+ 58a:	f8 01       	movw	r30, r16
+ 58c:	e8 0f       	add	r30, r24
+ 58e:	f9 1f       	adc	r31, r25
+ 590:	b0 80       	ld	r11, Z
+				uint8_t IRState = params[i+1];
+ 592:	01 96       	adiw	r24, 0x01	; 1
+ 594:	f8 01       	movw	r30, r16
+ 596:	e8 0f       	add	r30, r24
+ 598:	f9 1f       	adc	r31, r25
+ 59a:	80 81       	ld	r24, Z
+				if (IRState == 1) {
+ 59c:	81 30       	cpi	r24, 0x01	; 1
+ 59e:	09 f0       	breq	.+2      	; 0x5a2 <__EEPROM_REGION_LENGTH__+0x1a2>
+ 5a0:	5d c0       	rjmp	.+186    	; 0x65c <__EEPROM_REGION_LENGTH__+0x25c>
+					if (brazos[outNum].estado == 0) {
+ 5a2:	cb 2c       	mov	r12, r11
+ 5a4:	d1 2c       	mov	r13, r1
+ 5a6:	f6 01       	movw	r30, r12
+ 5a8:	ee 0f       	add	r30, r30
+ 5aa:	ff 1f       	adc	r31, r31
+ 5ac:	ee 0f       	add	r30, r30
+ 5ae:	ff 1f       	adc	r31, r31
+ 5b0:	e0 51       	subi	r30, 0x10	; 16
+ 5b2:	fe 4f       	sbci	r31, 0xFE	; 254
+ 5b4:	82 81       	ldd	r24, Z+2	; 0x02
+ 5b6:	81 11       	cpse	r24, r1
+ 5b8:	49 c0       	rjmp	.+146    	; 0x64c <__EEPROM_REGION_LENGTH__+0x24c>
+						int8_t dest = popFifo(outNum);
+ 5ba:	8b 2d       	mov	r24, r11
+ 5bc:	0e 94 f4 00 	call	0x1e8	; 0x1e8 <popFifo>
+						if (dest == -1) {
+ 5c0:	8f 3f       	cpi	r24, 0xFF	; 255
+ 5c2:	49 f4       	brne	.+18     	; 0x5d6 <__EEPROM_REGION_LENGTH__+0x1d6>
+							sensorPendiente[outNum].pendiente = 1;
+ 5c4:	f6 01       	movw	r30, r12
+ 5c6:	ee 0f       	add	r30, r30
+ 5c8:	ff 1f       	adc	r31, r31
+ 5ca:	e5 5a       	subi	r30, 0xA5	; 165
+ 5cc:	fe 4f       	sbci	r31, 0xFE	; 254
+ 5ce:	81 e0       	ldi	r24, 0x01	; 1
+ 5d0:	80 83       	st	Z, r24
+							sensorPendiente[outNum].outNum = outNum;
+ 5d2:	b1 82       	std	Z+1, r11	; 0x01
+ 5d4:	43 c0       	rjmp	.+134    	; 0x65c <__EEPROM_REGION_LENGTH__+0x25c>
+							} else if (dest == outNum) {
+ 5d6:	28 2f       	mov	r18, r24
+ 5d8:	08 2e       	mov	r0, r24
+ 5da:	00 0c       	add	r0, r0
+ 5dc:	33 0b       	sbc	r19, r19
+ 5de:	c2 16       	cp	r12, r18
+ 5e0:	d3 06       	cpc	r13, r19
+ 5e2:	59 f5       	brne	.+86     	; 0x63a <__EEPROM_REGION_LENGTH__+0x23a>
+							cajasSalida++;
+ 5e4:	80 91 53 01 	lds	r24, 0x0153	; 0x800153 <cajasSalida>
+ 5e8:	90 91 54 01 	lds	r25, 0x0154	; 0x800154 <cajasSalida+0x1>
+ 5ec:	01 96       	adiw	r24, 0x01	; 1
+ 5ee:	90 93 54 01 	sts	0x0154, r25	; 0x800154 <cajasSalida+0x1>
+ 5f2:	80 93 53 01 	sts	0x0153, r24	; 0x800153 <cajasSalida>
+							if (_encode) {
+ 5f6:	e0 91 58 01 	lds	r30, 0x0158	; 0x800158 <_encode>
+ 5fa:	f0 91 59 01 	lds	r31, 0x0159	; 0x800159 <_encode+0x1>
+ 5fe:	30 97       	sbiw	r30, 0x00	; 0
+ 600:	79 f0       	breq	.+30     	; 0x620 <__EEPROM_REGION_LENGTH__+0x220>
+								uint8_t payload[2];
+								payload[0] = (1 << outNum);
+ 602:	81 e0       	ldi	r24, 0x01	; 1
+ 604:	90 e0       	ldi	r25, 0x00	; 0
+ 606:	02 c0       	rjmp	.+4      	; 0x60c <__EEPROM_REGION_LENGTH__+0x20c>
+ 608:	88 0f       	add	r24, r24
+ 60a:	99 1f       	adc	r25, r25
+ 60c:	ba 94       	dec	r11
+ 60e:	e2 f7       	brpl	.-8      	; 0x608 <__EEPROM_REGION_LENGTH__+0x208>
+ 610:	89 83       	std	Y+1, r24	; 0x01
+								payload[1] = (1 << outNum);
+ 612:	8a 83       	std	Y+2, r24	; 0x02
+								_encode(0x52, payload, 2);
+ 614:	42 e0       	ldi	r20, 0x02	; 2
+ 616:	be 01       	movw	r22, r28
+ 618:	6f 5f       	subi	r22, 0xFF	; 255
+ 61a:	7f 4f       	sbci	r23, 0xFF	; 255
+ 61c:	82 e5       	ldi	r24, 0x52	; 82
+ 61e:	09 95       	icall
+							}
+							brazos[outNum].activo = 1;
+ 620:	f6 01       	movw	r30, r12
+ 622:	ee 0f       	add	r30, r30
+ 624:	ff 1f       	adc	r31, r31
+ 626:	ee 0f       	add	r30, r30
+ 628:	ff 1f       	adc	r31, r31
+ 62a:	e0 51       	subi	r30, 0x10	; 16
+ 62c:	fe 4f       	sbci	r31, 0xFE	; 254
+ 62e:	81 e0       	ldi	r24, 0x01	; 1
+ 630:	80 83       	st	Z, r24
+							brazos[outNum].timer = 125;
+ 632:	9d e7       	ldi	r25, 0x7D	; 125
+ 634:	91 83       	std	Z+1, r25	; 0x01
+							brazos[outNum].estado = 1;
+ 636:	82 83       	std	Z+2, r24	; 0x02
+ 638:	11 c0       	rjmp	.+34     	; 0x65c <__EEPROM_REGION_LENGTH__+0x25c>
+							} else if (outNum < 2) {
+ 63a:	f1 e0       	ldi	r31, 0x01	; 1
+ 63c:	fb 15       	cp	r31, r11
+ 63e:	70 f0       	brcs	.+28     	; 0x65c <__EEPROM_REGION_LENGTH__+0x25c>
+							pushFifo(outNum + 1, dest);
+ 640:	68 2f       	mov	r22, r24
+ 642:	81 e0       	ldi	r24, 0x01	; 1
+ 644:	8b 0d       	add	r24, r11
+ 646:	0e 94 d0 00 	call	0x1a0	; 0x1a0 <pushFifo>
+ 64a:	08 c0       	rjmp	.+16     	; 0x65c <__EEPROM_REGION_LENGTH__+0x25c>
+						}
+						} else {
+						sensorPendiente[outNum].pendiente = 1;
+ 64c:	f6 01       	movw	r30, r12
+ 64e:	ee 0f       	add	r30, r30
+ 650:	ff 1f       	adc	r31, r31
+ 652:	e5 5a       	subi	r30, 0xA5	; 165
+ 654:	fe 4f       	sbci	r31, 0xFE	; 254
+ 656:	81 e0       	ldi	r24, 0x01	; 1
+ 658:	80 83       	st	Z, r24
+						sensorPendiente[outNum].outNum = outNum;
+ 65a:	b1 82       	std	Z+1, r11	; 0x01
+		// a) popFifo(outNum) extrae el destino esperado para esta salida.
+		// b) Si coincide (dest == outNum), se activa el brazo: es la salida correcta.
+		// c) Si no coincide (outNum < 2), se transfiere al FIFO de la siguiente salida.
+		// d) Si el FIFO está vacío, se guarda como pendiente hasta que llegue una caja.
+        case 0x5E:  
+			for (uint8_t i = 0; i < len; i += 2) {
+ 65c:	f3 94       	inc	r15
+ 65e:	f3 94       	inc	r15
+ 660:	01 c0       	rjmp	.+2      	; 0x664 <__EEPROM_REGION_LENGTH__+0x264>
+		}
+	}
+}
+
+void CmdParser(uint8_t cmd, uint8_t* params, uint8_t len) {
+	switch(cmd) {
+ 662:	f1 2c       	mov	r15, r1
+		// a) popFifo(outNum) extrae el destino esperado para esta salida.
+		// b) Si coincide (dest == outNum), se activa el brazo: es la salida correcta.
+		// c) Si no coincide (outNum < 2), se transfiere al FIFO de la siguiente salida.
+		// d) Si el FIFO está vacío, se guarda como pendiente hasta que llegue una caja.
+        case 0x5E:  
+			for (uint8_t i = 0; i < len; i += 2) {
+ 664:	fe 14       	cp	r15, r14
+ 666:	08 f4       	brcc	.+2      	; 0x66a <__EEPROM_REGION_LENGTH__+0x26a>
+ 668:	8e cf       	rjmp	.-228    	; 0x586 <__EEPROM_REGION_LENGTH__+0x186>
+ 66a:	46 c0       	rjmp	.+140    	; 0x6f8 <__EEPROM_REGION_LENGTH__+0x2f8>
+					}
+				}
+				}
+        break;
+        case 0x5F: 
+			cajasEntrada++;
+ 66c:	80 91 55 01 	lds	r24, 0x0155	; 0x800155 <cajasEntrada>
+ 670:	90 91 56 01 	lds	r25, 0x0156	; 0x800156 <cajasEntrada+0x1>
+ 674:	01 96       	adiw	r24, 0x01	; 1
+ 676:	90 93 56 01 	sts	0x0156, r25	; 0x800156 <cajasEntrada+0x1>
+ 67a:	80 93 55 01 	sts	0x0155, r24	; 0x800155 <cajasEntrada>
+			for (uint8_t i = 0; i < 3; i++) {
+ 67e:	60 e0       	ldi	r22, 0x00	; 0
+ 680:	39 c0       	rjmp	.+114    	; 0x6f4 <__EEPROM_REGION_LENGTH__+0x2f4>
+				if (params[0] == configCajas[i]) {
+ 682:	d8 01       	movw	r26, r16
+ 684:	9c 91       	ld	r25, X
+ 686:	e6 2f       	mov	r30, r22
+ 688:	f0 e0       	ldi	r31, 0x00	; 0
+ 68a:	ea 55       	subi	r30, 0x5A	; 90
+ 68c:	fe 4f       	sbci	r31, 0xFE	; 254
+ 68e:	80 81       	ld	r24, Z
+ 690:	98 13       	cpse	r25, r24
+ 692:	2f c0       	rjmp	.+94     	; 0x6f2 <__EEPROM_REGION_LENGTH__+0x2f2>
+					pushFifo(0, i);
+ 694:	80 e0       	ldi	r24, 0x00	; 0
+ 696:	0e 94 d0 00 	call	0x1a0	; 0x1a0 <pushFifo>
+					if (sensorPendiente[0].pendiente && brazos[0].estado == 0) {
+ 69a:	80 91 5b 01 	lds	r24, 0x015B	; 0x80015b <sensorPendiente>
+ 69e:	88 23       	and	r24, r24
+ 6a0:	59 f1       	breq	.+86     	; 0x6f8 <__EEPROM_REGION_LENGTH__+0x2f8>
+ 6a2:	80 91 f2 01 	lds	r24, 0x01F2	; 0x8001f2 <brazos+0x2>
+ 6a6:	81 11       	cpse	r24, r1
+ 6a8:	27 c0       	rjmp	.+78     	; 0x6f8 <__EEPROM_REGION_LENGTH__+0x2f8>
+						sensorPendiente[0].pendiente = 0;
+ 6aa:	10 92 5b 01 	sts	0x015B, r1	; 0x80015b <sensorPendiente>
+						int8_t dest = popFifo(0);
+ 6ae:	0e 94 f4 00 	call	0x1e8	; 0x1e8 <popFifo>
+						if (dest == 0) {
+ 6b2:	81 11       	cpse	r24, r1
+ 6b4:	17 c0       	rjmp	.+46     	; 0x6e4 <__EEPROM_REGION_LENGTH__+0x2e4>
+							if (_encode) {
+ 6b6:	e0 91 58 01 	lds	r30, 0x0158	; 0x800158 <_encode>
+ 6ba:	f0 91 59 01 	lds	r31, 0x0159	; 0x800159 <_encode+0x1>
+ 6be:	30 97       	sbiw	r30, 0x00	; 0
+ 6c0:	49 f0       	breq	.+18     	; 0x6d4 <__EEPROM_REGION_LENGTH__+0x2d4>
+								uint8_t payload[2];
+								payload[0] = (1 << 0);
+ 6c2:	81 e0       	ldi	r24, 0x01	; 1
+ 6c4:	89 83       	std	Y+1, r24	; 0x01
+								payload[1] = (1 << 0);
+ 6c6:	8a 83       	std	Y+2, r24	; 0x02
+								_encode(0x52, payload, 2);
+ 6c8:	42 e0       	ldi	r20, 0x02	; 2
+ 6ca:	be 01       	movw	r22, r28
+ 6cc:	6f 5f       	subi	r22, 0xFF	; 255
+ 6ce:	7f 4f       	sbci	r23, 0xFF	; 255
+ 6d0:	82 e5       	ldi	r24, 0x52	; 82
+ 6d2:	09 95       	icall
+							}
+							brazos[0].activo = 1;
+ 6d4:	e0 ef       	ldi	r30, 0xF0	; 240
+ 6d6:	f1 e0       	ldi	r31, 0x01	; 1
+ 6d8:	81 e0       	ldi	r24, 0x01	; 1
+ 6da:	80 83       	st	Z, r24
+							brazos[0].timer = 125;
+ 6dc:	9d e7       	ldi	r25, 0x7D	; 125
+ 6de:	91 83       	std	Z+1, r25	; 0x01
+							brazos[0].estado = 1;
+ 6e0:	82 83       	std	Z+2, r24	; 0x02
+ 6e2:	0a c0       	rjmp	.+20     	; 0x6f8 <__EEPROM_REGION_LENGTH__+0x2f8>
+							} else if (dest != -1) {
+ 6e4:	8f 3f       	cpi	r24, 0xFF	; 255
+ 6e6:	41 f0       	breq	.+16     	; 0x6f8 <__EEPROM_REGION_LENGTH__+0x2f8>
+							pushFifo(1, dest);
+ 6e8:	68 2f       	mov	r22, r24
+ 6ea:	81 e0       	ldi	r24, 0x01	; 1
+ 6ec:	0e 94 d0 00 	call	0x1a0	; 0x1a0 <pushFifo>
+ 6f0:	03 c0       	rjmp	.+6      	; 0x6f8 <__EEPROM_REGION_LENGTH__+0x2f8>
+				}
+				}
+        break;
+        case 0x5F: 
+			cajasEntrada++;
+			for (uint8_t i = 0; i < 3; i++) {
+ 6f2:	6f 5f       	subi	r22, 0xFF	; 255
+ 6f4:	63 30       	cpi	r22, 0x03	; 3
+ 6f6:	28 f2       	brcs	.-118    	; 0x682 <__EEPROM_REGION_LENGTH__+0x282>
+					return;
+				}
+			}
+        break;
+	}
+}
+ 6f8:	0f 90       	pop	r0
+ 6fa:	0f 90       	pop	r0
+ 6fc:	df 91       	pop	r29
+ 6fe:	cf 91       	pop	r28
+ 700:	1f 91       	pop	r17
+ 702:	0f 91       	pop	r16
+ 704:	ff 90       	pop	r15
+ 706:	ef 90       	pop	r14
+ 708:	df 90       	pop	r13
+ 70a:	cf 90       	pop	r12
+ 70c:	bf 90       	pop	r11
+ 70e:	08 95       	ret
+
+00000710 <onStartStop>:
+
+void onStartStop(void) {
+ 710:	cf 93       	push	r28
+ 712:	df 93       	push	r29
+ 714:	1f 92       	push	r1
+ 716:	cd b7       	in	r28, 0x3d	; 61
+ 718:	de b7       	in	r29, 0x3e	; 62
+	uint8_t empty[1] = {0};
+ 71a:	19 82       	std	Y+1, r1	; 0x01
+	if (startFlag) {
+ 71c:	80 91 5a 01 	lds	r24, 0x015A	; 0x80015a <startFlag>
+ 720:	88 23       	and	r24, r24
+ 722:	79 f0       	breq	.+30     	; 0x742 <onStartStop+0x32>
+		if (_encode) _encode(0x51, empty, 0);
+ 724:	e0 91 58 01 	lds	r30, 0x0158	; 0x800158 <_encode>
+ 728:	f0 91 59 01 	lds	r31, 0x0159	; 0x800159 <_encode+0x1>
+ 72c:	30 97       	sbiw	r30, 0x00	; 0
+ 72e:	31 f0       	breq	.+12     	; 0x73c <onStartStop+0x2c>
+ 730:	40 e0       	ldi	r20, 0x00	; 0
+ 732:	be 01       	movw	r22, r28
+ 734:	6f 5f       	subi	r22, 0xFF	; 255
+ 736:	7f 4f       	sbci	r23, 0xFF	; 255
+ 738:	81 e5       	ldi	r24, 0x51	; 81
+ 73a:	09 95       	icall
+			startFlag = 0;
+ 73c:	10 92 5a 01 	sts	0x015A, r1	; 0x80015a <startFlag>
+ 740:	0f c0       	rjmp	.+30     	; 0x760 <onStartStop+0x50>
+	} else {
+		if (_encode) _encode(0x50, empty, 0);
+ 742:	e0 91 58 01 	lds	r30, 0x0158	; 0x800158 <_encode>
+ 746:	f0 91 59 01 	lds	r31, 0x0159	; 0x800159 <_encode+0x1>
+ 74a:	30 97       	sbiw	r30, 0x00	; 0
+ 74c:	31 f0       	breq	.+12     	; 0x75a <onStartStop+0x4a>
+ 74e:	40 e0       	ldi	r20, 0x00	; 0
+ 750:	be 01       	movw	r22, r28
+ 752:	6f 5f       	subi	r22, 0xFF	; 255
+ 754:	7f 4f       	sbci	r23, 0xFF	; 255
+ 756:	80 e5       	ldi	r24, 0x50	; 80
+ 758:	09 95       	icall
+			startFlag = 1;
+ 75a:	81 e0       	ldi	r24, 0x01	; 1
+ 75c:	80 93 5a 01 	sts	0x015A, r24	; 0x80015a <startFlag>
+	}
+}
+ 760:	0f 90       	pop	r0
+ 762:	df 91       	pop	r29
+ 764:	cf 91       	pop	r28
+ 766:	08 95       	ret
+
+00000768 <onReset>:
+
+void onReset(void) {
+ 768:	cf 93       	push	r28
+ 76a:	df 93       	push	r29
+ 76c:	1f 92       	push	r1
+ 76e:	cd b7       	in	r28, 0x3d	; 61
+ 770:	de b7       	in	r29, 0x3e	; 62
+	uint8_t empty[1] = {0};
+ 772:	19 82       	std	Y+1, r1	; 0x01
+	if (_encode) _encode(0x53, empty, 0);
+ 774:	e0 91 58 01 	lds	r30, 0x0158	; 0x800158 <_encode>
+ 778:	f0 91 59 01 	lds	r31, 0x0159	; 0x800159 <_encode+0x1>
+ 77c:	30 97       	sbiw	r30, 0x00	; 0
+ 77e:	31 f0       	breq	.+12     	; 0x78c <onReset+0x24>
+ 780:	40 e0       	ldi	r20, 0x00	; 0
+ 782:	be 01       	movw	r22, r28
+ 784:	6f 5f       	subi	r22, 0xFF	; 255
+ 786:	7f 4f       	sbci	r23, 0xFF	; 255
+ 788:	83 e5       	ldi	r24, 0x53	; 83
+ 78a:	09 95       	icall
+	startFlag = 0;
+ 78c:	10 92 5a 01 	sts	0x015A, r1	; 0x80015a <startFlag>
+}
+ 790:	0f 90       	pop	r0
+ 792:	df 91       	pop	r29
+ 794:	cf 91       	pop	r28
+ 796:	08 95       	ret
+
+00000798 <onVelUp>:
+
+void onVelUp(void) {
+ 798:	cf 93       	push	r28
+ 79a:	df 93       	push	r29
+ 79c:	1f 92       	push	r1
+ 79e:	cd b7       	in	r28, 0x3d	; 61
+ 7a0:	de b7       	in	r29, 0x3e	; 62
+	if (velIdx < 10) velIdx++;
+ 7a2:	80 91 00 01 	lds	r24, 0x0100	; 0x800100 <__DATA_REGION_ORIGIN__>
+ 7a6:	8a 30       	cpi	r24, 0x0A	; 10
+ 7a8:	18 f4       	brcc	.+6      	; 0x7b0 <onVelUp+0x18>
+ 7aa:	8f 5f       	subi	r24, 0xFF	; 255
+ 7ac:	80 93 00 01 	sts	0x0100, r24	; 0x800100 <__DATA_REGION_ORIGIN__>
+	uint8_t payload[1] = {velIdx * 2};
+ 7b0:	80 91 00 01 	lds	r24, 0x0100	; 0x800100 <__DATA_REGION_ORIGIN__>
+ 7b4:	88 0f       	add	r24, r24
+ 7b6:	89 83       	std	Y+1, r24	; 0x01
+	if (_encode) _encode(0x54, payload, 1);
+ 7b8:	e0 91 58 01 	lds	r30, 0x0158	; 0x800158 <_encode>
+ 7bc:	f0 91 59 01 	lds	r31, 0x0159	; 0x800159 <_encode+0x1>
+ 7c0:	30 97       	sbiw	r30, 0x00	; 0
+ 7c2:	31 f0       	breq	.+12     	; 0x7d0 <onVelUp+0x38>
+ 7c4:	41 e0       	ldi	r20, 0x01	; 1
+ 7c6:	be 01       	movw	r22, r28
+ 7c8:	6f 5f       	subi	r22, 0xFF	; 255
+ 7ca:	7f 4f       	sbci	r23, 0xFF	; 255
+ 7cc:	84 e5       	ldi	r24, 0x54	; 84
+ 7ce:	09 95       	icall
+}
+ 7d0:	0f 90       	pop	r0
+ 7d2:	df 91       	pop	r29
+ 7d4:	cf 91       	pop	r28
+ 7d6:	08 95       	ret
+
+000007d8 <onVelDown>:
+
+void onVelDown(void) {
+ 7d8:	cf 93       	push	r28
+ 7da:	df 93       	push	r29
+ 7dc:	1f 92       	push	r1
+ 7de:	cd b7       	in	r28, 0x3d	; 61
+ 7e0:	de b7       	in	r29, 0x3e	; 62
+	if (velIdx > 1) velIdx--;
+ 7e2:	80 91 00 01 	lds	r24, 0x0100	; 0x800100 <__DATA_REGION_ORIGIN__>
+ 7e6:	82 30       	cpi	r24, 0x02	; 2
+ 7e8:	18 f0       	brcs	.+6      	; 0x7f0 <onVelDown+0x18>
+ 7ea:	81 50       	subi	r24, 0x01	; 1
+ 7ec:	80 93 00 01 	sts	0x0100, r24	; 0x800100 <__DATA_REGION_ORIGIN__>
+	uint8_t payload[1] = {velIdx * 2};
+ 7f0:	80 91 00 01 	lds	r24, 0x0100	; 0x800100 <__DATA_REGION_ORIGIN__>
+ 7f4:	88 0f       	add	r24, r24
+ 7f6:	89 83       	std	Y+1, r24	; 0x01
+	if (_encode) _encode(0x54, payload, 1);
+ 7f8:	e0 91 58 01 	lds	r30, 0x0158	; 0x800158 <_encode>
+ 7fc:	f0 91 59 01 	lds	r31, 0x0159	; 0x800159 <_encode+0x1>
+ 800:	30 97       	sbiw	r30, 0x00	; 0
+ 802:	31 f0       	breq	.+12     	; 0x810 <__DATA_REGION_LENGTH__+0x10>
+ 804:	41 e0       	ldi	r20, 0x01	; 1
+ 806:	be 01       	movw	r22, r28
+ 808:	6f 5f       	subi	r22, 0xFF	; 255
+ 80a:	7f 4f       	sbci	r23, 0xFF	; 255
+ 80c:	84 e5       	ldi	r24, 0x54	; 84
+ 80e:	09 95       	icall
+ 810:	0f 90       	pop	r0
+ 812:	df 91       	pop	r29
+ 814:	cf 91       	pop	r28
+ 816:	08 95       	ret
+
+00000818 <initPort>:
+	checkBrazos();
+	Clasificador_On2Ms();
+}
+
+static void initPort(void) {
+	DDRB |= (1<<PORTB5)|(1<<PORTB3)|(1<<PORTB2)|(1<<PORTB1)|(1<<PORTB0);
+ 818:	84 b1       	in	r24, 0x04	; 4
+ 81a:	8f 62       	ori	r24, 0x2F	; 47
+ 81c:	84 b9       	out	0x04, r24	; 4
+	
+	DDRD |= (1<<PORTD2)|(1<<PORTD3);      
+ 81e:	8a b1       	in	r24, 0x0a	; 10
+ 820:	8c 60       	ori	r24, 0x0C	; 12
+ 822:	8a b9       	out	0x0a, r24	; 10
+	DDRD &= ~((1<<PORTD4)|(1<<PORTD5)|(1<<PORTD6)|(1<<PORTD7)); 
+ 824:	8a b1       	in	r24, 0x0a	; 10
+ 826:	8f 70       	andi	r24, 0x0F	; 15
+ 828:	8a b9       	out	0x0a, r24	; 10
+	PORTD |= (1<<PORTD4)|(1<<PORTD5)|(1<<PORTD6)|(1<<PORTD7);   
+ 82a:	8b b1       	in	r24, 0x0b	; 11
+ 82c:	80 6f       	ori	r24, 0xF0	; 240
+ 82e:	8b b9       	out	0x0b, r24	; 11
+ 830:	08 95       	ret
+
+00000832 <initTMR0>:
+}
+
+static void initTMR0(void) {
+	TCCR0A = 0;
+ 832:	14 bc       	out	0x24, r1	; 36
+	TIFR0 = TIFR0;
+ 834:	85 b3       	in	r24, 0x15	; 21
+ 836:	85 bb       	out	0x15, r24	; 21
+	OCR0A = 124;
+ 838:	8c e7       	ldi	r24, 0x7C	; 124
+ 83a:	87 bd       	out	0x27, r24	; 39
+	TIMSK0 = (1<<OCIE0A);
+ 83c:	82 e0       	ldi	r24, 0x02	; 2
+ 83e:	80 93 6e 00 	sts	0x006E, r24	; 0x80006e <__TEXT_REGION_LENGTH__+0x7f806e>
+	TCCR0B = (1<<CS02);
+ 842:	84 e0       	ldi	r24, 0x04	; 4
+ 844:	85 bd       	out	0x25, r24	; 37
+ 846:	08 95       	ret
+
+00000848 <initUSART0>:
+}
+
+static void initUSART0(void) {
+	UBRR0H = (uint8_t)(103 >> 8);
+ 848:	10 92 c5 00 	sts	0x00C5, r1	; 0x8000c5 <__TEXT_REGION_LENGTH__+0x7f80c5>
+	UBRR0L = (uint8_t)103;
+ 84c:	87 e6       	ldi	r24, 0x67	; 103
+ 84e:	80 93 c4 00 	sts	0x00C4, r24	; 0x8000c4 <__TEXT_REGION_LENGTH__+0x7f80c4>
+	UCSR0C = (1<<UCSZ01)|(1<<UCSZ00);
+ 852:	86 e0       	ldi	r24, 0x06	; 6
+ 854:	80 93 c2 00 	sts	0x00C2, r24	; 0x8000c2 <__TEXT_REGION_LENGTH__+0x7f80c2>
+	UCSR0B = (1<<RXEN0)|(1<<TXEN0)|(1<<RXCIE0);
+ 858:	88 e9       	ldi	r24, 0x98	; 152
+ 85a:	80 93 c1 00 	sts	0x00C1, r24	; 0x8000c1 <__TEXT_REGION_LENGTH__+0x7f80c1>
+ 85e:	08 95       	ret
+
+00000860 <On2Ms>:
+}
+
+// Se ejecuta cada 2ms cuando el loop principal detecta la bandera GPIOR00.
+// Centraliza toda la lógica de tiempo real: parpadeo del LED, heartbeat alive,
+// lectura de botones con debounce, y actualización de tiempos de brazos.
+static void On2Ms(void) {
+ 860:	cf 93       	push	r28
+ 862:	df 93       	push	r29
+ 864:	1f 92       	push	r1
+ 866:	cd b7       	in	r28, 0x3d	; 61
+ 868:	de b7       	in	r29, 0x3e	; 62
+	GPIOR0 &= ~_BV(GPIOR00);
+ 86a:	8e b3       	in	r24, 0x1e	; 30
+ 86c:	8e 7f       	andi	r24, 0xFE	; 254
+ 86e:	8e bb       	out	0x1e, r24	; 30
+	
+	switch (ledMode){
+ 870:	80 91 ef 01 	lds	r24, 0x01EF	; 0x8001ef <ledMode>
+ 874:	88 23       	and	r24, r24
+ 876:	19 f0       	breq	.+6      	; 0x87e <On2Ms+0x1e>
+ 878:	81 30       	cpi	r24, 0x01	; 1
+ 87a:	71 f0       	breq	.+28     	; 0x898 <On2Ms+0x38>
+ 87c:	10 c0       	rjmp	.+32     	; 0x89e <On2Ms+0x3e>
+		case 0:
+			time100ms--;
+ 87e:	80 91 ab 01 	lds	r24, 0x01AB	; 0x8001ab <time100ms>
+ 882:	81 50       	subi	r24, 0x01	; 1
+ 884:	80 93 ab 01 	sts	0x01AB, r24	; 0x8001ab <time100ms>
+			if (!time100ms) {
+ 888:	81 11       	cpse	r24, r1
+ 88a:	09 c0       	rjmp	.+18     	; 0x89e <On2Ms+0x3e>
+				time100ms = 100;
+ 88c:	84 e6       	ldi	r24, 0x64	; 100
+ 88e:	80 93 ab 01 	sts	0x01AB, r24	; 0x8001ab <time100ms>
+				PINB = (1 << PINB5);
+ 892:	80 e2       	ldi	r24, 0x20	; 32
+ 894:	83 b9       	out	0x03, r24	; 3
+ 896:	03 c0       	rjmp	.+6      	; 0x89e <On2Ms+0x3e>
+			}
+		break;
+		case 1:
+			PORTB |= (1 << PINB5);
+ 898:	85 b1       	in	r24, 0x05	; 5
+ 89a:	80 62       	ori	r24, 0x20	; 32
+ 89c:	85 b9       	out	0x05, r24	; 5
+		case 2:
+			// Sin logica implementada
+		break;
+	}
+	
+	aliveTimer++;
+ 89e:	80 91 a9 01 	lds	r24, 0x01A9	; 0x8001a9 <aliveTimer>
+ 8a2:	90 91 aa 01 	lds	r25, 0x01AA	; 0x8001aa <aliveTimer+0x1>
+ 8a6:	01 96       	adiw	r24, 0x01	; 1
+ 8a8:	90 93 aa 01 	sts	0x01AA, r25	; 0x8001aa <aliveTimer+0x1>
+ 8ac:	80 93 a9 01 	sts	0x01A9, r24	; 0x8001a9 <aliveTimer>
+	if (aliveTimer >= 2500) {   
+ 8b0:	84 3c       	cpi	r24, 0xC4	; 196
+ 8b2:	99 40       	sbci	r25, 0x09	; 9
+ 8b4:	60 f0       	brcs	.+24     	; 0x8ce <On2Ms+0x6e>
+		aliveTimer = 0;
+ 8b6:	10 92 aa 01 	sts	0x01AA, r1	; 0x8001aa <aliveTimer+0x1>
+ 8ba:	10 92 a9 01 	sts	0x01A9, r1	; 0x8001a9 <aliveTimer>
+		uint8_t empty[1] = {0};
+ 8be:	19 82       	std	Y+1, r1	; 0x01
+		Encode(0xF0, empty, 0);
+ 8c0:	40 e0       	ldi	r20, 0x00	; 0
+ 8c2:	be 01       	movw	r22, r28
+ 8c4:	6f 5f       	subi	r22, 0xFF	; 255
+ 8c6:	7f 4f       	sbci	r23, 0xFF	; 255
+ 8c8:	80 ef       	ldi	r24, 0xF0	; 240
+ 8ca:	0e 94 c4 05 	call	0xb88	; 0xb88 <Encode>
+	}
+	
+	botonesUpdate();
+ 8ce:	0e 94 93 00 	call	0x126	; 0x126 <botonesUpdate>
+	checkBrazos();
+ 8d2:	0e 94 6c 01 	call	0x2d8	; 0x2d8 <checkBrazos>
+	Clasificador_On2Ms();
+ 8d6:	0e 94 47 01 	call	0x28e	; 0x28e <Clasificador_On2Ms>
+}
+ 8da:	0f 90       	pop	r0
+ 8dc:	df 91       	pop	r29
+ 8de:	cf 91       	pop	r28
+ 8e0:	08 95       	ret
+
+000008e2 <__vector_14>:
+static void initTMR0(void);
+static void initUSART0(void);
+
+// Interrupción del Timer 0 en modo CTC. Se dispara cada 2ms (125 ticks a 16MHz/256).
+// Solo activa una bandera en GPIOR0 para que el loop principal procese On2Ms().
+ISR(TIMER0_COMPA_vect) {
+ 8e2:	1f 92       	push	r1
+ 8e4:	0f 92       	push	r0
+ 8e6:	0f b6       	in	r0, 0x3f	; 63
+ 8e8:	0f 92       	push	r0
+ 8ea:	11 24       	eor	r1, r1
+ 8ec:	8f 93       	push	r24
+	OCR0A += 125;
+ 8ee:	87 b5       	in	r24, 0x27	; 39
+ 8f0:	83 58       	subi	r24, 0x83	; 131
+ 8f2:	87 bd       	out	0x27, r24	; 39
+	GPIOR0 |= _BV(GPIOR00);
+ 8f4:	8e b3       	in	r24, 0x1e	; 30
+ 8f6:	81 60       	ori	r24, 0x01	; 1
+ 8f8:	8e bb       	out	0x1e, r24	; 30
+}
+ 8fa:	8f 91       	pop	r24
+ 8fc:	0f 90       	pop	r0
+ 8fe:	0f be       	out	0x3f, r0	; 63
+ 900:	0f 90       	pop	r0
+ 902:	1f 90       	pop	r1
+ 904:	18 95       	reti
+
+00000906 <__vector_18>:
+
+ISR(USART_RX_vect) {
+ 906:	1f 92       	push	r1
+ 908:	0f 92       	push	r0
+ 90a:	0f b6       	in	r0, 0x3f	; 63
+ 90c:	0f 92       	push	r0
+ 90e:	11 24       	eor	r1, r1
+ 910:	8f 93       	push	r24
+ 912:	9f 93       	push	r25
+ 914:	af 93       	push	r26
+ 916:	bf 93       	push	r27
+ 918:	ef 93       	push	r30
+ 91a:	ff 93       	push	r31
+	rx.rBuf.buf[rx.rBuf.iw++] = UDR0;
+ 91c:	ec ef       	ldi	r30, 0xFC	; 252
+ 91e:	f1 e0       	ldi	r31, 0x01	; 1
+ 920:	a0 81       	ld	r26, Z
+ 922:	b1 81       	ldd	r27, Z+1	; 0x01
+ 924:	82 81       	ldd	r24, Z+2	; 0x02
+ 926:	91 e0       	ldi	r25, 0x01	; 1
+ 928:	98 0f       	add	r25, r24
+ 92a:	92 83       	std	Z+2, r25	; 0x02
+ 92c:	a8 0f       	add	r26, r24
+ 92e:	b1 1d       	adc	r27, r1
+ 930:	80 91 c6 00 	lds	r24, 0x00C6	; 0x8000c6 <__TEXT_REGION_LENGTH__+0x7f80c6>
+ 934:	8c 93       	st	X, r24
+	rx.rBuf.iw &= (rx.rBuf.size-1);
+ 936:	92 81       	ldd	r25, Z+2	; 0x02
+ 938:	84 81       	ldd	r24, Z+4	; 0x04
+ 93a:	81 50       	subi	r24, 0x01	; 1
+ 93c:	89 23       	and	r24, r25
+ 93e:	82 83       	std	Z+2, r24	; 0x02
+}
+ 940:	ff 91       	pop	r31
+ 942:	ef 91       	pop	r30
+ 944:	bf 91       	pop	r27
+ 946:	af 91       	pop	r26
+ 948:	9f 91       	pop	r25
+ 94a:	8f 91       	pop	r24
+ 94c:	0f 90       	pop	r0
+ 94e:	0f be       	out	0x3f, r0	; 63
+ 950:	0f 90       	pop	r0
+ 952:	1f 90       	pop	r1
+ 954:	18 95       	reti
+
+00000956 <main>:
+// b) Seteo de callbacks entre módulos 
+// c) Inicializa UART, puertos y timer
+// d) Registro de botones 
+// f) sei() habilita interrupciones solo cuando todo está listo
+int main(void) {
+	cli();
+ 956:	f8 94       	cli
+
+	Protocolo_Init();
+ 958:	0e 94 15 05 	call	0xa2a	; 0xa2a <Protocolo_Init>
+	Clasificador_Init();
+ 95c:	0e 94 20 01 	call	0x240	; 0x240 <Clasificador_Init>
+
+	Protocolo_SetCmdParser(CmdParser);
+ 960:	8c ec       	ldi	r24, 0xCC	; 204
+ 962:	91 e0       	ldi	r25, 0x01	; 1
+ 964:	0e 94 2a 05 	call	0xa54	; 0xa54 <Protocolo_SetCmdParser>
+	Clasificador_SetEncode(Encode);
+ 968:	84 ec       	ldi	r24, 0xC4	; 196
+ 96a:	95 e0       	ldi	r25, 0x05	; 5
+ 96c:	0e 94 1b 01 	call	0x236	; 0x236 <Clasificador_SetEncode>
+
+	initUSART0();
+ 970:	0e 94 24 04 	call	0x848	; 0x848 <initUSART0>
+	initPort();
+ 974:	0e 94 0c 04 	call	0x818	; 0x818 <initPort>
+	initTMR0();
+ 978:	0e 94 19 04 	call	0x832	; 0x832 <initTMR0>
+
+	botonesInit();
+ 97c:	0e 94 5a 00 	call	0xb4	; 0xb4 <botonesInit>
+	botonesRegister(&PIND, &PORTD, &DDRD, (1<<PORTD4), onStartStop);
+ 980:	08 e8       	ldi	r16, 0x88	; 136
+ 982:	13 e0       	ldi	r17, 0x03	; 3
+ 984:	20 e1       	ldi	r18, 0x10	; 16
+ 986:	4a e2       	ldi	r20, 0x2A	; 42
+ 988:	50 e0       	ldi	r21, 0x00	; 0
+ 98a:	6b e2       	ldi	r22, 0x2B	; 43
+ 98c:	70 e0       	ldi	r23, 0x00	; 0
+ 98e:	89 e2       	ldi	r24, 0x29	; 41
+ 990:	90 e0       	ldi	r25, 0x00	; 0
+ 992:	0e 94 5d 00 	call	0xba	; 0xba <botonesRegister>
+	botonesRegister(&PIND, &PORTD, &DDRD, (1<<PORTD5), onReset);
+ 996:	04 eb       	ldi	r16, 0xB4	; 180
+ 998:	13 e0       	ldi	r17, 0x03	; 3
+ 99a:	20 e2       	ldi	r18, 0x20	; 32
+ 99c:	4a e2       	ldi	r20, 0x2A	; 42
+ 99e:	50 e0       	ldi	r21, 0x00	; 0
+ 9a0:	6b e2       	ldi	r22, 0x2B	; 43
+ 9a2:	70 e0       	ldi	r23, 0x00	; 0
+ 9a4:	89 e2       	ldi	r24, 0x29	; 41
+ 9a6:	90 e0       	ldi	r25, 0x00	; 0
+ 9a8:	0e 94 5d 00 	call	0xba	; 0xba <botonesRegister>
+	botonesRegister(&PIND, &PORTD, &DDRD, (1<<PORTD6), onVelUp);
+ 9ac:	0c ec       	ldi	r16, 0xCC	; 204
+ 9ae:	13 e0       	ldi	r17, 0x03	; 3
+ 9b0:	20 e4       	ldi	r18, 0x40	; 64
+ 9b2:	4a e2       	ldi	r20, 0x2A	; 42
+ 9b4:	50 e0       	ldi	r21, 0x00	; 0
+ 9b6:	6b e2       	ldi	r22, 0x2B	; 43
+ 9b8:	70 e0       	ldi	r23, 0x00	; 0
+ 9ba:	89 e2       	ldi	r24, 0x29	; 41
+ 9bc:	90 e0       	ldi	r25, 0x00	; 0
+ 9be:	0e 94 5d 00 	call	0xba	; 0xba <botonesRegister>
+	botonesRegister(&PIND, &PORTD, &DDRD, (1<<PORTD7), onVelDown);
+ 9c2:	0c ee       	ldi	r16, 0xEC	; 236
+ 9c4:	13 e0       	ldi	r17, 0x03	; 3
+ 9c6:	20 e8       	ldi	r18, 0x80	; 128
+ 9c8:	4a e2       	ldi	r20, 0x2A	; 42
+ 9ca:	50 e0       	ldi	r21, 0x00	; 0
+ 9cc:	6b e2       	ldi	r22, 0x2B	; 43
+ 9ce:	70 e0       	ldi	r23, 0x00	; 0
+ 9d0:	89 e2       	ldi	r24, 0x29	; 41
+ 9d2:	90 e0       	ldi	r25, 0x00	; 0
+ 9d4:	0e 94 5d 00 	call	0xba	; 0xba <botonesRegister>
+	
+	sei();
+ 9d8:	78 94       	sei
+
+	time100ms = 100;
+ 9da:	84 e6       	ldi	r24, 0x64	; 100
+ 9dc:	80 93 ab 01 	sts	0x01AB, r24	; 0x8001ab <time100ms>
+
+	while (1) {
+		if (GPIOR0 & _BV(GPIOR00))
+ 9e0:	f0 99       	sbic	0x1e, 0	; 30
+		On2Ms();
+ 9e2:	0e 94 30 04 	call	0x860	; 0x860 <On2Ms>
+
+		if (rx.rBuf.ir != rx.rBuf.iw)
+ 9e6:	ec ef       	ldi	r30, 0xFC	; 252
+ 9e8:	f1 e0       	ldi	r31, 0x01	; 1
+ 9ea:	93 81       	ldd	r25, Z+3	; 0x03
+ 9ec:	82 81       	ldd	r24, Z+2	; 0x02
+ 9ee:	98 13       	cpse	r25, r24
+		Decode();
+ 9f0:	0e 94 2f 05 	call	0xa5e	; 0xa5e <Decode>
+
+		if (tx.rBuf.iw != tx.rBuf.ir) {
+ 9f4:	e5 e8       	ldi	r30, 0x85	; 133
+ 9f6:	f2 e0       	ldi	r31, 0x02	; 2
+ 9f8:	92 81       	ldd	r25, Z+2	; 0x02
+ 9fa:	83 81       	ldd	r24, Z+3	; 0x03
+ 9fc:	98 17       	cp	r25, r24
+ 9fe:	81 f3       	breq	.-32     	; 0x9e0 <main+0x8a>
+			if (UCSR0A & _BV(UDRE0)) {
+ a00:	80 91 c0 00 	lds	r24, 0x00C0	; 0x8000c0 <__TEXT_REGION_LENGTH__+0x7f80c0>
+ a04:	85 ff       	sbrs	r24, 5
+ a06:	ec cf       	rjmp	.-40     	; 0x9e0 <main+0x8a>
+				UDR0 = tx.rBuf.buf[tx.rBuf.ir++];
+ a08:	a0 81       	ld	r26, Z
+ a0a:	b1 81       	ldd	r27, Z+1	; 0x01
+ a0c:	83 81       	ldd	r24, Z+3	; 0x03
+ a0e:	91 e0       	ldi	r25, 0x01	; 1
+ a10:	98 0f       	add	r25, r24
+ a12:	93 83       	std	Z+3, r25	; 0x03
+ a14:	a8 0f       	add	r26, r24
+ a16:	b1 1d       	adc	r27, r1
+ a18:	8c 91       	ld	r24, X
+ a1a:	80 93 c6 00 	sts	0x00C6, r24	; 0x8000c6 <__TEXT_REGION_LENGTH__+0x7f80c6>
+				tx.rBuf.ir &= (tx.rBuf.size-1);
+ a1e:	93 81       	ldd	r25, Z+3	; 0x03
+ a20:	84 81       	ldd	r24, Z+4	; 0x04
+ a22:	81 50       	subi	r24, 0x01	; 1
+ a24:	89 23       	and	r24, r25
+ a26:	83 83       	std	Z+3, r24	; 0x03
+ a28:	db cf       	rjmp	.-74     	; 0x9e0 <main+0x8a>
+
+00000a2a <Protocolo_Init>:
+_sTx tx;
+
+static CmdParserCallback _cmdParser = 0;
+
+void Protocolo_Init(void) {
+	rx.rBuf.buf = bufRX;
+ a2a:	ec ef       	ldi	r30, 0xFC	; 252
+ a2c:	f1 e0       	ldi	r31, 0x01	; 1
+ a2e:	8b e8       	ldi	r24, 0x8B	; 139
+ a30:	92 e0       	ldi	r25, 0x02	; 2
+ a32:	91 83       	std	Z+1, r25	; 0x01
+ a34:	80 83       	st	Z, r24
+	rx.rBuf.size = BUFRXSIZE;
+ a36:	80 e8       	ldi	r24, 0x80	; 128
+ a38:	84 83       	std	Z+4, r24	; 0x04
+	rx.rBuf.ir = 0;
+ a3a:	13 82       	std	Z+3, r1	; 0x03
+	rx.rBuf.iw = 0;
+ a3c:	12 82       	std	Z+2, r1	; 0x02
+	rx.hdrState = 0;
+ a3e:	16 82       	std	Z+6, r1	; 0x06
+	tx.rBuf.buf = bufTX;
+ a40:	e5 e8       	ldi	r30, 0x85	; 133
+ a42:	f2 e0       	ldi	r31, 0x02	; 2
+ a44:	25 e0       	ldi	r18, 0x05	; 5
+ a46:	32 e0       	ldi	r19, 0x02	; 2
+ a48:	31 83       	std	Z+1, r19	; 0x01
+ a4a:	20 83       	st	Z, r18
+	tx.rBuf.size = BUFTXSIZE;
+ a4c:	84 83       	std	Z+4, r24	; 0x04
+	tx.rBuf.ir = 0;
+ a4e:	13 82       	std	Z+3, r1	; 0x03
+	tx.rBuf.iw = 0;
+ a50:	12 82       	std	Z+2, r1	; 0x02
+ a52:	08 95       	ret
+
+00000a54 <Protocolo_SetCmdParser>:
+}
+
+void Protocolo_SetCmdParser(CmdParserCallback cb) {
+	_cmdParser = cb;
+ a54:	90 93 ad 01 	sts	0x01AD, r25	; 0x8001ad <_cmdParser+0x1>
+ a58:	80 93 ac 01 	sts	0x01AC, r24	; 0x8001ac <_cmdParser>
+ a5c:	08 95       	ret
+
+00000a5e <Decode>:
+}
+
+void Decode(void) {
+	while (rx.rBuf.ir != rx.rBuf.iw) {
+ a5e:	8d c0       	rjmp	.+282    	; 0xb7a <Decode+0x11c>
+		uint8_t b = rx.rBuf.buf[rx.rBuf.ir++];
+ a60:	ec ef       	ldi	r30, 0xFC	; 252
+ a62:	f1 e0       	ldi	r31, 0x01	; 1
+ a64:	a0 81       	ld	r26, Z
+ a66:	b1 81       	ldd	r27, Z+1	; 0x01
+ a68:	83 81       	ldd	r24, Z+3	; 0x03
+ a6a:	91 e0       	ldi	r25, 0x01	; 1
+ a6c:	98 0f       	add	r25, r24
+ a6e:	93 83       	std	Z+3, r25	; 0x03
+ a70:	a8 0f       	add	r26, r24
+ a72:	b1 1d       	adc	r27, r1
+ a74:	2c 91       	ld	r18, X
+		rx.rBuf.ir &= (rx.rBuf.size - 1);
+ a76:	93 81       	ldd	r25, Z+3	; 0x03
+ a78:	84 81       	ldd	r24, Z+4	; 0x04
+ a7a:	81 50       	subi	r24, 0x01	; 1
+ a7c:	89 23       	and	r24, r25
+ a7e:	83 83       	std	Z+3, r24	; 0x03
+
+		switch (rx.hdrState) {
+ a80:	e6 81       	ldd	r30, Z+6	; 0x06
+ a82:	8e 2f       	mov	r24, r30
+ a84:	90 e0       	ldi	r25, 0x00	; 0
+ a86:	87 30       	cpi	r24, 0x07	; 7
+ a88:	91 05       	cpc	r25, r1
+ a8a:	08 f0       	brcs	.+2      	; 0xa8e <Decode+0x30>
+ a8c:	76 c0       	rjmp	.+236    	; 0xb7a <Decode+0x11c>
+ a8e:	fc 01       	movw	r30, r24
+ a90:	ec 5c       	subi	r30, 0xCC	; 204
+ a92:	ff 4f       	sbci	r31, 0xFF	; 255
+ a94:	0c 94 76 06 	jmp	0xcec	; 0xcec <__tablejump2__>
+			case 0: if (b == 'U') { rx.hdrState = 1; rx.cks = b; } break;
+ a98:	25 35       	cpi	r18, 0x55	; 85
+ a9a:	09 f0       	breq	.+2      	; 0xa9e <Decode+0x40>
+ a9c:	6e c0       	rjmp	.+220    	; 0xb7a <Decode+0x11c>
+ a9e:	ec ef       	ldi	r30, 0xFC	; 252
+ aa0:	f1 e0       	ldi	r31, 0x01	; 1
+ aa2:	81 e0       	ldi	r24, 0x01	; 1
+ aa4:	86 83       	std	Z+6, r24	; 0x06
+ aa6:	20 87       	std	Z+8, r18	; 0x08
+ aa8:	68 c0       	rjmp	.+208    	; 0xb7a <Decode+0x11c>
+			case 1: if (b == 'N') { rx.hdrState = 2; rx.cks ^= b; } else rx.hdrState = 0; break;
+ aaa:	2e 34       	cpi	r18, 0x4E	; 78
+ aac:	41 f4       	brne	.+16     	; 0xabe <Decode+0x60>
+ aae:	ec ef       	ldi	r30, 0xFC	; 252
+ ab0:	f1 e0       	ldi	r31, 0x01	; 1
+ ab2:	82 e0       	ldi	r24, 0x02	; 2
+ ab4:	86 83       	std	Z+6, r24	; 0x06
+ ab6:	80 85       	ldd	r24, Z+8	; 0x08
+ ab8:	28 27       	eor	r18, r24
+ aba:	20 87       	std	Z+8, r18	; 0x08
+ abc:	5e c0       	rjmp	.+188    	; 0xb7a <Decode+0x11c>
+ abe:	10 92 02 02 	sts	0x0202, r1	; 0x800202 <rx+0x6>
+ ac2:	5b c0       	rjmp	.+182    	; 0xb7a <Decode+0x11c>
+			case 2: if (b == 'E') { rx.hdrState = 3; rx.cks ^= b; } else rx.hdrState = 0; break;
+ ac4:	25 34       	cpi	r18, 0x45	; 69
+ ac6:	41 f4       	brne	.+16     	; 0xad8 <Decode+0x7a>
+ ac8:	ec ef       	ldi	r30, 0xFC	; 252
+ aca:	f1 e0       	ldi	r31, 0x01	; 1
+ acc:	83 e0       	ldi	r24, 0x03	; 3
+ ace:	86 83       	std	Z+6, r24	; 0x06
+ ad0:	80 85       	ldd	r24, Z+8	; 0x08
+ ad2:	28 27       	eor	r18, r24
+ ad4:	20 87       	std	Z+8, r18	; 0x08
+ ad6:	51 c0       	rjmp	.+162    	; 0xb7a <Decode+0x11c>
+ ad8:	10 92 02 02 	sts	0x0202, r1	; 0x800202 <rx+0x6>
+ adc:	4e c0       	rjmp	.+156    	; 0xb7a <Decode+0x11c>
+			case 3: if (b == 'R') { rx.hdrState = 4; rx.cks ^= b; } else rx.hdrState = 0; break;
+ ade:	22 35       	cpi	r18, 0x52	; 82
+ ae0:	41 f4       	brne	.+16     	; 0xaf2 <Decode+0x94>
+ ae2:	ec ef       	ldi	r30, 0xFC	; 252
+ ae4:	f1 e0       	ldi	r31, 0x01	; 1
+ ae6:	84 e0       	ldi	r24, 0x04	; 4
+ ae8:	86 83       	std	Z+6, r24	; 0x06
+ aea:	80 85       	ldd	r24, Z+8	; 0x08
+ aec:	28 27       	eor	r18, r24
+ aee:	20 87       	std	Z+8, r18	; 0x08
+ af0:	44 c0       	rjmp	.+136    	; 0xb7a <Decode+0x11c>
+ af2:	10 92 02 02 	sts	0x0202, r1	; 0x800202 <rx+0x6>
+ af6:	41 c0       	rjmp	.+130    	; 0xb7a <Decode+0x11c>
+			case 4:
+			rx.nBytes = b;
+ af8:	ec ef       	ldi	r30, 0xFC	; 252
+ afa:	f1 e0       	ldi	r31, 0x01	; 1
+ afc:	27 83       	std	Z+7, r18	; 0x07
+			rx.cks ^= b;
+ afe:	80 85       	ldd	r24, Z+8	; 0x08
+ b00:	28 27       	eor	r18, r24
+ b02:	20 87       	std	Z+8, r18	; 0x08
+			rx.hdrState = 5;
+ b04:	85 e0       	ldi	r24, 0x05	; 5
+ b06:	86 83       	std	Z+6, r24	; 0x06
+			pIdx = 0;
+ b08:	10 92 ae 01 	sts	0x01AE, r1	; 0x8001ae <pIdx>
+			break;
+ b0c:	36 c0       	rjmp	.+108    	; 0xb7a <Decode+0x11c>
+			case 5:
+			if (b == TOKEN_VAL) { rx.cks ^= b; rx.hdrState = 6; }
+ b0e:	2a 33       	cpi	r18, 0x3A	; 58
+ b10:	41 f4       	brne	.+16     	; 0xb22 <Decode+0xc4>
+ b12:	ec ef       	ldi	r30, 0xFC	; 252
+ b14:	f1 e0       	ldi	r31, 0x01	; 1
+ b16:	80 85       	ldd	r24, Z+8	; 0x08
+ b18:	28 27       	eor	r18, r24
+ b1a:	20 87       	std	Z+8, r18	; 0x08
+ b1c:	86 e0       	ldi	r24, 0x06	; 6
+ b1e:	86 83       	std	Z+6, r24	; 0x06
+ b20:	2c c0       	rjmp	.+88     	; 0xb7a <Decode+0x11c>
+			else rx.hdrState = 0;
+ b22:	10 92 02 02 	sts	0x0202, r1	; 0x800202 <rx+0x6>
+ b26:	29 c0       	rjmp	.+82     	; 0xb7a <Decode+0x11c>
+			break;
+			case 6:
+			rx.cks ^= b;
+ b28:	ec ef       	ldi	r30, 0xFC	; 252
+ b2a:	f1 e0       	ldi	r31, 0x01	; 1
+ b2c:	90 85       	ldd	r25, Z+8	; 0x08
+ b2e:	92 27       	eor	r25, r18
+ b30:	90 87       	std	Z+8, r25	; 0x08
+			if (rx.nBytes > 1) payloadBuffer[pIdx++] = b;
+ b32:	87 81       	ldd	r24, Z+7	; 0x07
+ b34:	82 30       	cpi	r24, 0x02	; 2
+ b36:	50 f0       	brcs	.+20     	; 0xb4c <Decode+0xee>
+ b38:	e0 91 ae 01 	lds	r30, 0x01AE	; 0x8001ae <pIdx>
+ b3c:	31 e0       	ldi	r19, 0x01	; 1
+ b3e:	3e 0f       	add	r19, r30
+ b40:	30 93 ae 01 	sts	0x01AE, r19	; 0x8001ae <pIdx>
+ b44:	f0 e0       	ldi	r31, 0x00	; 0
+ b46:	e1 55       	subi	r30, 0x51	; 81
+ b48:	fe 4f       	sbci	r31, 0xFE	; 254
+ b4a:	20 83       	st	Z, r18
+			rx.nBytes--;
+ b4c:	81 50       	subi	r24, 0x01	; 1
+ b4e:	80 93 03 02 	sts	0x0203, r24	; 0x800203 <rx+0x7>
+			if (rx.nBytes == 0) {
+ b52:	81 11       	cpse	r24, r1
+ b54:	12 c0       	rjmp	.+36     	; 0xb7a <Decode+0x11c>
+				if (rx.cks == 0 && _cmdParser)
+ b56:	91 11       	cpse	r25, r1
+ b58:	0e c0       	rjmp	.+28     	; 0xb76 <Decode+0x118>
+ b5a:	e0 91 ac 01 	lds	r30, 0x01AC	; 0x8001ac <_cmdParser>
+ b5e:	f0 91 ad 01 	lds	r31, 0x01AD	; 0x8001ad <_cmdParser+0x1>
+ b62:	30 97       	sbiw	r30, 0x00	; 0
+ b64:	41 f0       	breq	.+16     	; 0xb76 <Decode+0x118>
+				_cmdParser(payloadBuffer[0], &payloadBuffer[1], pIdx - 1);
+ b66:	40 91 ae 01 	lds	r20, 0x01AE	; 0x8001ae <pIdx>
+ b6a:	41 50       	subi	r20, 0x01	; 1
+ b6c:	60 eb       	ldi	r22, 0xB0	; 176
+ b6e:	71 e0       	ldi	r23, 0x01	; 1
+ b70:	80 91 af 01 	lds	r24, 0x01AF	; 0x8001af <payloadBuffer>
+ b74:	09 95       	icall
+				rx.hdrState = 0;
+ b76:	10 92 02 02 	sts	0x0202, r1	; 0x800202 <rx+0x6>
+void Protocolo_SetCmdParser(CmdParserCallback cb) {
+	_cmdParser = cb;
+}
+
+void Decode(void) {
+	while (rx.rBuf.ir != rx.rBuf.iw) {
+ b7a:	ec ef       	ldi	r30, 0xFC	; 252
+ b7c:	f1 e0       	ldi	r31, 0x01	; 1
+ b7e:	93 81       	ldd	r25, Z+3	; 0x03
+ b80:	82 81       	ldd	r24, Z+2	; 0x02
+ b82:	98 13       	cpse	r25, r24
+ b84:	6d cf       	rjmp	.-294    	; 0xa60 <Decode+0x2>
+				rx.hdrState = 0;
+			}
+			break;
+		}
+	}
+}
+ b86:	08 95       	ret
+
+00000b88 <Encode>:
+
+void Encode(uint8_t cmd, uint8_t* payload, uint8_t n) {
+ b88:	cf 93       	push	r28
+ b8a:	df 93       	push	r29
+	uint8_t checksum = 0;
+	uint8_t length = 1 + n + 1;
+ b8c:	52 e0       	ldi	r21, 0x02	; 2
+ b8e:	54 0f       	add	r21, r20
+
+	tx.rBuf.buf[tx.rBuf.iw++] = 'U'; tx.rBuf.iw &= (tx.rBuf.size-1); checksum = 'U';
+ b90:	e5 e8       	ldi	r30, 0x85	; 133
+ b92:	f2 e0       	ldi	r31, 0x02	; 2
+ b94:	a0 81       	ld	r26, Z
+ b96:	b1 81       	ldd	r27, Z+1	; 0x01
+ b98:	92 81       	ldd	r25, Z+2	; 0x02
+ b9a:	21 e0       	ldi	r18, 0x01	; 1
+ b9c:	29 0f       	add	r18, r25
+ b9e:	22 83       	std	Z+2, r18	; 0x02
+ ba0:	a9 0f       	add	r26, r25
+ ba2:	b1 1d       	adc	r27, r1
+ ba4:	95 e5       	ldi	r25, 0x55	; 85
+ ba6:	9c 93       	st	X, r25
+ ba8:	22 81       	ldd	r18, Z+2	; 0x02
+ baa:	94 81       	ldd	r25, Z+4	; 0x04
+ bac:	91 50       	subi	r25, 0x01	; 1
+ bae:	92 23       	and	r25, r18
+ bb0:	92 83       	std	Z+2, r25	; 0x02
+	tx.rBuf.buf[tx.rBuf.iw++] = 'N'; tx.rBuf.iw &= (tx.rBuf.size-1); checksum ^= 'N';
+ bb2:	a0 81       	ld	r26, Z
+ bb4:	b1 81       	ldd	r27, Z+1	; 0x01
+ bb6:	92 81       	ldd	r25, Z+2	; 0x02
+ bb8:	21 e0       	ldi	r18, 0x01	; 1
+ bba:	29 0f       	add	r18, r25
+ bbc:	22 83       	std	Z+2, r18	; 0x02
+ bbe:	a9 0f       	add	r26, r25
+ bc0:	b1 1d       	adc	r27, r1
+ bc2:	9e e4       	ldi	r25, 0x4E	; 78
+ bc4:	9c 93       	st	X, r25
+ bc6:	22 81       	ldd	r18, Z+2	; 0x02
+ bc8:	94 81       	ldd	r25, Z+4	; 0x04
+ bca:	91 50       	subi	r25, 0x01	; 1
+ bcc:	92 23       	and	r25, r18
+ bce:	92 83       	std	Z+2, r25	; 0x02
+	tx.rBuf.buf[tx.rBuf.iw++] = 'E'; tx.rBuf.iw &= (tx.rBuf.size-1); checksum ^= 'E';
+ bd0:	a0 81       	ld	r26, Z
+ bd2:	b1 81       	ldd	r27, Z+1	; 0x01
+ bd4:	92 81       	ldd	r25, Z+2	; 0x02
+ bd6:	21 e0       	ldi	r18, 0x01	; 1
+ bd8:	29 0f       	add	r18, r25
+ bda:	22 83       	std	Z+2, r18	; 0x02
+ bdc:	a9 0f       	add	r26, r25
+ bde:	b1 1d       	adc	r27, r1
+ be0:	95 e4       	ldi	r25, 0x45	; 69
+ be2:	9c 93       	st	X, r25
+ be4:	22 81       	ldd	r18, Z+2	; 0x02
+ be6:	94 81       	ldd	r25, Z+4	; 0x04
+ be8:	91 50       	subi	r25, 0x01	; 1
+ bea:	92 23       	and	r25, r18
+ bec:	92 83       	std	Z+2, r25	; 0x02
+	tx.rBuf.buf[tx.rBuf.iw++] = 'R'; tx.rBuf.iw &= (tx.rBuf.size-1); checksum ^= 'R';
+ bee:	a0 81       	ld	r26, Z
+ bf0:	b1 81       	ldd	r27, Z+1	; 0x01
+ bf2:	92 81       	ldd	r25, Z+2	; 0x02
+ bf4:	21 e0       	ldi	r18, 0x01	; 1
+ bf6:	29 0f       	add	r18, r25
+ bf8:	22 83       	std	Z+2, r18	; 0x02
+ bfa:	a9 0f       	add	r26, r25
+ bfc:	b1 1d       	adc	r27, r1
+ bfe:	92 e5       	ldi	r25, 0x52	; 82
+ c00:	9c 93       	st	X, r25
+ c02:	32 81       	ldd	r19, Z+2	; 0x02
+ c04:	24 81       	ldd	r18, Z+4	; 0x04
+ c06:	21 50       	subi	r18, 0x01	; 1
+ c08:	23 23       	and	r18, r19
+ c0a:	22 83       	std	Z+2, r18	; 0x02
+	tx.rBuf.buf[tx.rBuf.iw++] = length; tx.rBuf.iw &= (tx.rBuf.size-1); checksum ^= length;
+ c0c:	a0 81       	ld	r26, Z
+ c0e:	b1 81       	ldd	r27, Z+1	; 0x01
+ c10:	92 81       	ldd	r25, Z+2	; 0x02
+ c12:	21 e0       	ldi	r18, 0x01	; 1
+ c14:	29 0f       	add	r18, r25
+ c16:	22 83       	std	Z+2, r18	; 0x02
+ c18:	a9 0f       	add	r26, r25
+ c1a:	b1 1d       	adc	r27, r1
+ c1c:	5c 93       	st	X, r21
+ c1e:	32 81       	ldd	r19, Z+2	; 0x02
+ c20:	24 81       	ldd	r18, Z+4	; 0x04
+ c22:	21 50       	subi	r18, 0x01	; 1
+ c24:	23 23       	and	r18, r19
+ c26:	22 83       	std	Z+2, r18	; 0x02
+	tx.rBuf.buf[tx.rBuf.iw++] = ':';    tx.rBuf.iw &= (tx.rBuf.size-1); checksum ^= ':';
+ c28:	a0 81       	ld	r26, Z
+ c2a:	b1 81       	ldd	r27, Z+1	; 0x01
+ c2c:	92 81       	ldd	r25, Z+2	; 0x02
+ c2e:	21 e0       	ldi	r18, 0x01	; 1
+ c30:	29 0f       	add	r18, r25
+ c32:	22 83       	std	Z+2, r18	; 0x02
+ c34:	a9 0f       	add	r26, r25
+ c36:	b1 1d       	adc	r27, r1
+ c38:	9a e3       	ldi	r25, 0x3A	; 58
+ c3a:	9c 93       	st	X, r25
+ c3c:	32 81       	ldd	r19, Z+2	; 0x02
+ c3e:	24 81       	ldd	r18, Z+4	; 0x04
+ c40:	21 50       	subi	r18, 0x01	; 1
+ c42:	23 23       	and	r18, r19
+ c44:	22 83       	std	Z+2, r18	; 0x02
+ c46:	96 e3       	ldi	r25, 0x36	; 54
+ c48:	95 27       	eor	r25, r21
+	tx.rBuf.buf[tx.rBuf.iw++] = cmd;    tx.rBuf.iw &= (tx.rBuf.size-1); checksum ^= cmd;
+ c4a:	a0 81       	ld	r26, Z
+ c4c:	b1 81       	ldd	r27, Z+1	; 0x01
+ c4e:	22 81       	ldd	r18, Z+2	; 0x02
+ c50:	31 e0       	ldi	r19, 0x01	; 1
+ c52:	32 0f       	add	r19, r18
+ c54:	32 83       	std	Z+2, r19	; 0x02
+ c56:	a2 0f       	add	r26, r18
+ c58:	b1 1d       	adc	r27, r1
+ c5a:	8c 93       	st	X, r24
+ c5c:	32 81       	ldd	r19, Z+2	; 0x02
+ c5e:	24 81       	ldd	r18, Z+4	; 0x04
+ c60:	21 50       	subi	r18, 0x01	; 1
+ c62:	23 23       	and	r18, r19
+ c64:	22 83       	std	Z+2, r18	; 0x02
+ c66:	89 27       	eor	r24, r25
+
+	for (uint8_t i = 0; i < n; i++) {
+ c68:	90 e0       	ldi	r25, 0x00	; 0
+ c6a:	17 c0       	rjmp	.+46     	; 0xc9a <Encode+0x112>
+		tx.rBuf.buf[tx.rBuf.iw++] = payload[i];
+ c6c:	e5 e8       	ldi	r30, 0x85	; 133
+ c6e:	f2 e0       	ldi	r31, 0x02	; 2
+ c70:	a0 81       	ld	r26, Z
+ c72:	b1 81       	ldd	r27, Z+1	; 0x01
+ c74:	22 81       	ldd	r18, Z+2	; 0x02
+ c76:	31 e0       	ldi	r19, 0x01	; 1
+ c78:	32 0f       	add	r19, r18
+ c7a:	32 83       	std	Z+2, r19	; 0x02
+ c7c:	a2 0f       	add	r26, r18
+ c7e:	b1 1d       	adc	r27, r1
+ c80:	eb 01       	movw	r28, r22
+ c82:	c9 0f       	add	r28, r25
+ c84:	d1 1d       	adc	r29, r1
+ c86:	28 81       	ld	r18, Y
+ c88:	2c 93       	st	X, r18
+		tx.rBuf.iw &= (tx.rBuf.size-1);
+ c8a:	32 81       	ldd	r19, Z+2	; 0x02
+ c8c:	24 81       	ldd	r18, Z+4	; 0x04
+ c8e:	21 50       	subi	r18, 0x01	; 1
+ c90:	23 23       	and	r18, r19
+ c92:	22 83       	std	Z+2, r18	; 0x02
+		checksum ^= payload[i];
+ c94:	28 81       	ld	r18, Y
+ c96:	82 27       	eor	r24, r18
+	tx.rBuf.buf[tx.rBuf.iw++] = 'R'; tx.rBuf.iw &= (tx.rBuf.size-1); checksum ^= 'R';
+	tx.rBuf.buf[tx.rBuf.iw++] = length; tx.rBuf.iw &= (tx.rBuf.size-1); checksum ^= length;
+	tx.rBuf.buf[tx.rBuf.iw++] = ':';    tx.rBuf.iw &= (tx.rBuf.size-1); checksum ^= ':';
+	tx.rBuf.buf[tx.rBuf.iw++] = cmd;    tx.rBuf.iw &= (tx.rBuf.size-1); checksum ^= cmd;
+
+	for (uint8_t i = 0; i < n; i++) {
+ c98:	9f 5f       	subi	r25, 0xFF	; 255
+ c9a:	94 17       	cp	r25, r20
+ c9c:	38 f3       	brcs	.-50     	; 0xc6c <Encode+0xe4>
+		tx.rBuf.buf[tx.rBuf.iw++] = payload[i];
+		tx.rBuf.iw &= (tx.rBuf.size-1);
+		checksum ^= payload[i];
+	}
+
+	tx.rBuf.buf[tx.rBuf.iw++] = checksum;
+ c9e:	e5 e8       	ldi	r30, 0x85	; 133
+ ca0:	f2 e0       	ldi	r31, 0x02	; 2
+ ca2:	a0 81       	ld	r26, Z
+ ca4:	b1 81       	ldd	r27, Z+1	; 0x01
+ ca6:	92 81       	ldd	r25, Z+2	; 0x02
+ ca8:	21 e0       	ldi	r18, 0x01	; 1
+ caa:	29 0f       	add	r18, r25
+ cac:	22 83       	std	Z+2, r18	; 0x02
+ cae:	a9 0f       	add	r26, r25
+ cb0:	b1 1d       	adc	r27, r1
+ cb2:	8c 93       	st	X, r24
+	tx.rBuf.iw &= (tx.rBuf.size-1);
+ cb4:	92 81       	ldd	r25, Z+2	; 0x02
+ cb6:	84 81       	ldd	r24, Z+4	; 0x04
+ cb8:	81 50       	subi	r24, 0x01	; 1
+ cba:	89 23       	and	r24, r25
+ cbc:	82 83       	std	Z+2, r24	; 0x02
+ cbe:	df 91       	pop	r29
+ cc0:	cf 91       	pop	r28
+ cc2:	08 95       	ret
+
+00000cc4 <__divmodhi4>:
+ cc4:	97 fb       	bst	r25, 7
+ cc6:	07 2e       	mov	r0, r23
+ cc8:	16 f4       	brtc	.+4      	; 0xcce <__divmodhi4+0xa>
+ cca:	00 94       	com	r0
+ ccc:	07 d0       	rcall	.+14     	; 0xcdc <__divmodhi4_neg1>
+ cce:	77 fd       	sbrc	r23, 7
+ cd0:	09 d0       	rcall	.+18     	; 0xce4 <__divmodhi4_neg2>
+ cd2:	0e 94 7c 06 	call	0xcf8	; 0xcf8 <__udivmodhi4>
+ cd6:	07 fc       	sbrc	r0, 7
+ cd8:	05 d0       	rcall	.+10     	; 0xce4 <__divmodhi4_neg2>
+ cda:	3e f4       	brtc	.+14     	; 0xcea <__divmodhi4_exit>
+
+00000cdc <__divmodhi4_neg1>:
+ cdc:	90 95       	com	r25
+ cde:	81 95       	neg	r24
+ ce0:	9f 4f       	sbci	r25, 0xFF	; 255
+ ce2:	08 95       	ret
+
+00000ce4 <__divmodhi4_neg2>:
+ ce4:	70 95       	com	r23
+ ce6:	61 95       	neg	r22
+ ce8:	7f 4f       	sbci	r23, 0xFF	; 255
+
+00000cea <__divmodhi4_exit>:
+ cea:	08 95       	ret
+
+00000cec <__tablejump2__>:
+ cec:	ee 0f       	add	r30, r30
+ cee:	ff 1f       	adc	r31, r31
+ cf0:	05 90       	lpm	r0, Z+
+ cf2:	f4 91       	lpm	r31, Z
+ cf4:	e0 2d       	mov	r30, r0
+ cf6:	09 94       	ijmp
+
+00000cf8 <__udivmodhi4>:
+ cf8:	aa 1b       	sub	r26, r26
+ cfa:	bb 1b       	sub	r27, r27
+ cfc:	51 e1       	ldi	r21, 0x11	; 17
+ cfe:	07 c0       	rjmp	.+14     	; 0xd0e <__udivmodhi4_ep>
+
+00000d00 <__udivmodhi4_loop>:
+ d00:	aa 1f       	adc	r26, r26
+ d02:	bb 1f       	adc	r27, r27
+ d04:	a6 17       	cp	r26, r22
+ d06:	b7 07       	cpc	r27, r23
+ d08:	10 f0       	brcs	.+4      	; 0xd0e <__udivmodhi4_ep>
+ d0a:	a6 1b       	sub	r26, r22
+ d0c:	b7 0b       	sbc	r27, r23
+
+00000d0e <__udivmodhi4_ep>:
+ d0e:	88 1f       	adc	r24, r24
+ d10:	99 1f       	adc	r25, r25
+ d12:	5a 95       	dec	r21
+ d14:	a9 f7       	brne	.-22     	; 0xd00 <__udivmodhi4_loop>
+ d16:	80 95       	com	r24
+ d18:	90 95       	com	r25
+ d1a:	bc 01       	movw	r22, r24
+ d1c:	cd 01       	movw	r24, r26
+ d1e:	08 95       	ret
+
+00000d20 <_exit>:
+ d20:	f8 94       	cli
+
+00000d22 <__stop_program>:
+ d22:	ff cf       	rjmp	.-2      	; 0xd22 <__stop_program>
