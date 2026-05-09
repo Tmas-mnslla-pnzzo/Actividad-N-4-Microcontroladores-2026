@@ -132,6 +132,12 @@
     <Compile Include="clasificador.h">
       <SubType>compile</SubType>
     </Compile>
+    <Compile Include="hcsr04.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="ir.c">
+      <SubType>compile</SubType>
+    </Compile>
     <Compile Include="main.c">
       <SubType>compile</SubType>
     </Compile>
@@ -139,6 +145,9 @@
       <SubType>compile</SubType>
     </Compile>
     <Compile Include="protocolo.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="sg90.c">
       <SubType>compile</SubType>
     </Compile>
   </ItemGroup>
