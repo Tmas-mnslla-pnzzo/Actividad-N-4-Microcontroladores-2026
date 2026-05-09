@@ -135,7 +135,13 @@
     <Compile Include="hcsr04.c">
       <SubType>compile</SubType>
     </Compile>
-    <Compile Include="ir.c">
+    <Compile Include="hcsr04.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="sg90.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="tcrt5000.c">
       <SubType>compile</SubType>
     </Compile>
     <Compile Include="main.c">
@@ -148,6 +154,9 @@
       <SubType>compile</SubType>
     </Compile>
     <Compile Include="sg90.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="tcrt5000.h">
       <SubType>compile</SubType>
     </Compile>
   </ItemGroup>

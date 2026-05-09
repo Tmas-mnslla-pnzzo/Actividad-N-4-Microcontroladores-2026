@@ -4,6 +4,9 @@
 #include "protocolo.h"
 #include "clasificador.h"
 #include "botones.h"
+#include "hcsr04.h"
+#include "tcrt5000.h"
+#include "sg90.h"
 
 static uint8_t time100ms;
 static uint16_t aliveTimer = 0;

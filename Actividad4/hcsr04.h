@@ -5,7 +5,7 @@
 
 /* ?? Callbacks ??????????????????????????????????????????? */
 /* Escribe pin TRIG: state = 1 (alto) | 0 (bajo)          */
-typedef void    (*hcsr04_pin_write_cb_t)(uint8_t state);
+typedef void (*hcsr04_pin_write_cb_t)(uint8_t state);
 
 /* Lee pin ECHO: retorna 1 (alto) | 0 (bajo)              */
 typedef uint8_t (*hcsr04_pin_read_cb_t)(void);
@@ -38,13 +38,9 @@ typedef struct {
 #define HCSR04_US_TO_CM         0.01715f
 
 /* ?? API ???????????????????????????????????????????????? */
-void    HCSR04_Init   (HCSR04_t *dev,
-hcsr04_pin_write_cb_t set_trig,
-hcsr04_pin_read_cb_t  get_echo,
-hcsr04_result_cb_t    on_result);
-
-void    HCSR04_Trigger(HCSR04_t *dev, uint32_t now_us);
-void    HCSR04_Tick   (HCSR04_t *dev, uint32_t now_us);
+void HCSR04_Init   (HCSR04_t *dev, hcsr04_pin_write_cb_t set_trig, hcsr04_pin_read_cb_t get_echo, hcsr04_result_cb_t on_result);
+void HCSR04_Trigger(HCSR04_t *dev, uint32_t now_us);
+void HCSR04_Tick   (HCSR04_t *dev, uint32_t now_us);
 uint8_t HCSR04_IsBusy (const HCSR04_t *dev);
 
 #endif /* HCSR04_H */
