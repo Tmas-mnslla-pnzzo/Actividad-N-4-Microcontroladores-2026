@@ -9,20 +9,29 @@ void IR_Init(IR_Sensor_t *dev, ir_read_cb_t  read, ir_event_cb_t on_detected, ir
 
 void IR_Tick(IR_Sensor_t *dev) {
 	if (dev->read_pin == (void*)0) return;
-
+	
 	uint8_t current = dev->read_pin();
-
-	/* Flanco positivo: libre ? detectado */
-	if (current && !dev->last_state) {
-		if (dev->on_detected) dev->on_detected();
+	
+	if (current == dev->last_state) {
+		dev->debounce_cnt = 0U;
+		return;
 	}
-	/* Flanco negativo: detectado ? libre */
-	else if (!current && dev->last_state) {
-		if (dev->on_released) dev->on_released();
+	
+	dev->debounce_cnt++;
+	
+	if (dev->debounce_cnt >= IR_DEBOUNCE_TICKS) {
+		dev->debounce_cnt = 0U;
+		dev->last_state   = current;
+		
+		if (current) {
+			if (dev->on_detected) dev->on_detected();
+		}
+		else {
+			if (dev->on_released) dev->on_released();
+		}
 	}
-
-	dev->last_state = current;
 }
+
 
 uint8_t IR_IsActive(const IR_Sensor_t *dev) {
 	return dev->last_state;

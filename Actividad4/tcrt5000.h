@@ -3,14 +3,17 @@
 
 #include <stdint.h>
 
+#define IR_DEBOUNCE_TICKS 50U
+
 typedef uint8_t (*ir_read_cb_t)(void);
 typedef void (*ir_event_cb_t)(void);
 
 typedef struct {
-	ir_read_cb_t   read_pin;      /* lectura del pin digital  */
-	ir_event_cb_t  on_detected;   /* flanco positivo          */
-	ir_event_cb_t  on_released;   /* flanco negativo          */
-	uint8_t        last_state;    /* último estado leído      */
+	ir_read_cb_t   read_pin;      
+	ir_event_cb_t  on_detected;  
+	ir_event_cb_t  on_released;  
+	uint8_t        last_state;   
+	uint8_t        debounce_cnt;
 } IR_Sensor_t;
 
 void IR_Init (IR_Sensor_t *dev, ir_read_cb_t  read, ir_event_cb_t on_detected, ir_event_cb_t on_released);

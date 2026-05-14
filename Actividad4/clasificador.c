@@ -9,14 +9,31 @@ static uint16_t aliveTimeout = 0;
 static uint8_t startFlag = 0;
 static uint8_t velIdx = 1;
 static EncodeCallback _encode = 0;
+static TriggerCallback _trigger = 0;
+static VelocidadCallback _velocidad = 0;
+static OutputCallback _output = 0;
+uint8_t anchoCaja = 0;
 uint8_t sistemaListo = 0;
 uint8_t ledMode;
 uint16_t cajasEntrada = 0;
 uint16_t cajasSalida = 0;
 _sBrazo brazos[3];
 
+
+void Clasificador_SetOutput(OutputCallback cb) {
+	_output = cb;
+}
+
 void Clasificador_SetEncode(EncodeCallback cb) {
 	_encode = cb;
+}
+
+void Clasificador_SetTrigger(TriggerCallback cb) {
+	_trigger = cb;
+}
+
+void Clasificador_SetVelocidad(VelocidadCallback cb) {
+	_velocidad = cb;
 }
 
 // Agrega un destino al buffer circular FIFO de la salida indicada.
@@ -105,6 +122,7 @@ void CmdParser(uint8_t cmd, uint8_t* params, uint8_t len) {
 			    }
 			    ledMode = 0;
 			}
+			if (_output) _output(1);  // ? encender A0
         break;
         case 0x51:  
 			if (params[0] == 0x0D) {
@@ -114,8 +132,10 @@ void CmdParser(uint8_t cmd, uint8_t* params, uint8_t len) {
 					brazos[i].timer = 0;
 					brazos[i].estado = 0;
 				}
-				}
+			}
+			if (_output) _output(0);
         break;
+		
 		// Busca el brazo que estaba esperando confirmación (estado = 2) y lo libera.
 		// Si había una caja pendiente en esa salida, la procesa de inmediato:
 		// Extrae del FIFO, si coincide activa el brazo, si no transfiere al siguiente.
@@ -153,7 +173,7 @@ void CmdParser(uint8_t cmd, uint8_t* params, uint8_t len) {
         case 0x53:
 		    if (params[0] == 0x0D) {
 			    ledMode = 0;
-			    } else if (params[0] == 0x0A) {
+			} else if (params[0] == 0x0A) {
 			    ledMode = 2;
 		    }
 		break;
@@ -225,6 +245,16 @@ void CmdParser(uint8_t cmd, uint8_t* params, uint8_t len) {
 				}
 			}
         break;
+		case 0x60:
+			
+		break;
+		case 0x61:
+			if (_trigger) _trigger();
+		break;
+		case 0x62:
+			anchoCaja = params[0];
+			if (_velocidad) _velocidad(params[0]);
+		break;
 	}
 }
 

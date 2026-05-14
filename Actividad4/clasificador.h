@@ -32,11 +32,18 @@ extern uint8_t sistemaListo;
 extern uint8_t ledMode;
 extern uint16_t cajasEntrada;
 extern uint16_t cajasSalida;
+extern uint8_t anchoCaja;
 
 typedef void (*EncodeCallback)(uint8_t cmd, uint8_t* payload, uint8_t n);
+typedef void (*TriggerCallback)(void);
+typedef void (*VelocidadCallback)(uint8_t ancho_cm);
+typedef void (*OutputCallback)(uint8_t state);
 
+void Clasificador_SetOutput(OutputCallback cb);
+void Clasificador_SetVelocidad(VelocidadCallback cb);
 void Clasificador_Init(void);
 void Clasificador_SetEncode(EncodeCallback cb);
+void Clasificador_SetTrigger(TriggerCallback cb);
 void CmdParser(uint8_t cmd, uint8_t* params, uint8_t len);
 void checkBrazos(void);
 void Clasificador_On2Ms(void);
