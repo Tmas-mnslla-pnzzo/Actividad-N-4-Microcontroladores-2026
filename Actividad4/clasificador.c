@@ -2,7 +2,6 @@
 
 #define ALIVE_TIMEOUT_MS 5000  
 
-static uint8_t configCajas[3];
 static _sFifoCajas tramos[3];
 static _sSensorPendiente sensorPendiente[3];
 static uint16_t aliveTimeout = 0;
@@ -19,6 +18,20 @@ uint16_t cajasEntrada = 0;
 uint16_t cajasSalida = 0;
 _sBrazo brazos[3];
 
+uint32_t SG90_PERIOD_US        = 20000U;
+uint32_t SG90_PULSE_MIN_US     = 544U;
+uint32_t SG90_PULSE_MAX_US     = 2400U;
+uint32_t SG90_PULSE_NEUTRAL_US = 1472U;
+uint16_t HCSR04_ECHO_TIMEOUT_US = 30000U;
+uint8_t  HCSR04_TRIG_PULSE_US   = 10U;
+uint8_t  IR_DEBOUNCE_TICKS       = 50U;
+uint8_t calibracion[4] = {20, 16, 13, 10};
+uint8_t tolerancia = 2;
+uint8_t time_arm_extend = 125;
+uint8_t time_arm_retract = 125;
+uint8_t SG90_ANGLE_DETECT = 0;
+uint8_t SG90_ANGLE_REPOSE = 90;
+uint8_t configCajas[3] = {1, 2, 3};
 
 void Clasificador_SetOutput(OutputCallback cb) {
 	_output = cb;
@@ -34,6 +47,11 @@ void Clasificador_SetTrigger(TriggerCallback cb) {
 
 void Clasificador_SetVelocidad(VelocidadCallback cb) {
 	_velocidad = cb;
+}
+
+void Clasificador_NuevaCaja(uint8_t tipo) {
+	uint8_t params[1] = {tipo};
+	CmdParser(0x5F, params, 1);
 }
 
 // Agrega un destino al buffer circular FIFO de la salida indicada.
@@ -217,10 +235,9 @@ void CmdParser(uint8_t cmd, uint8_t* params, uint8_t len) {
 						sensorPendiente[outNum].outNum = outNum;
 					}
 				}
-				}
+			}
         break;
         case 0x5F: 
-			cajasEntrada++;
 			for (uint8_t i = 0; i < 3; i++) {
 				if (params[0] == configCajas[i]) {
 					pushFifo(0, i);
@@ -246,7 +263,14 @@ void CmdParser(uint8_t cmd, uint8_t* params, uint8_t len) {
 			}
         break;
 		case 0x60:
-			
+			if (len >= 1) {
+				modo_ciego = params[0];
+			}
+			if (len >= 4) {
+				dist_s0_a_salida[0] = params[1];
+				dist_s0_a_salida[1] = params[2];
+				dist_s0_a_salida[2] = params[3];
+			}
 		break;
 		case 0x61:
 			if (_trigger) _trigger();
@@ -254,6 +278,48 @@ void CmdParser(uint8_t cmd, uint8_t* params, uint8_t len) {
 		case 0x62:
 			anchoCaja = params[0];
 			if (_velocidad) _velocidad(params[0]);
+		break;
+		case 0x63:
+			if (len >= 7) {
+				calibracion[0] = params[0];
+				calibracion[1] = params[1];
+				calibracion[2] = params[2];
+				calibracion[3] = params[3];
+				tolerancia = params[4];
+				time_arm_extend = params[5];
+				time_arm_retract = params[6];
+			}
+		break;
+		case 0x64:
+			if (len >= 3) {
+				HCSR04_TRIG_PULSE_US   = params[0];
+				HCSR04_ECHO_TIMEOUT_US = ((uint16_t)params[1] << 8) | params[2];
+				}
+		break;
+		case 0x65:
+			if (len >= 8) {
+				SG90_PERIOD_US        = ((uint32_t)params[0] << 8) | params[1];
+				SG90_PULSE_MIN_US     = ((uint32_t)params[2] << 8) | params[3];
+				SG90_PULSE_MAX_US     = ((uint32_t)params[4] << 8) | params[5];
+				SG90_PULSE_NEUTRAL_US = ((uint32_t)params[6] << 8) | params[7];
+				}
+		break;
+		case 0x66:
+			if (len >= 1) {
+				IR_DEBOUNCE_TICKS = params[0];
+			}
+		break;
+		case 0x67:
+			if (len >= 8) {
+				retractTimer = params[0];
+				SG90_ANGLE_DETECT = params[1];
+				SG90_ANGLE_REPOSE = params[2];
+				hcsrTimer = params[3];
+				aliveTimer = params[4];
+				configCajas[0] = params[5];
+				configCajas[1] = params[6];
+				configCajas[2] = params[7];
+			}
 		break;
 	}
 }

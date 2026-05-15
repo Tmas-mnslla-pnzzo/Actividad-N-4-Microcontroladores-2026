@@ -3,7 +3,7 @@
 
 #include <stdint.h>
 
-#define IR_DEBOUNCE_TICKS 50U
+extern uint8_t IR_DEBOUNCE_TICKS;
 
 typedef uint8_t (*ir_read_cb_t)(void);
 typedef void (*ir_event_cb_t)(void);
