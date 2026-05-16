@@ -27,6 +27,7 @@ typedef struct {
 	uint8_t outNum;
 } _sSensorPendiente;
 
+extern uint16_t ALIVE;
 extern _sBrazo brazos[3];
 extern uint8_t sistemaListo;
 extern uint8_t ledMode;
@@ -40,6 +41,7 @@ extern uint8_t time_arm_retract;
 extern uint8_t retractTimer;
 extern uint8_t SG90_ANGLE_DETECT;
 extern uint8_t SG90_ANGLE_REPOSE;
+extern uint8_t SG90_RETRACT_TIME;
 extern uint16_t hcsrTimer;
 extern uint16_t aliveTimer;
 extern uint8_t configCajas[3];

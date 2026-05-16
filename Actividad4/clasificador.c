@@ -17,10 +17,12 @@ uint16_t cajasEntrada = 0;
 uint16_t cajasSalida = 0;
 _sBrazo brazos[3];
 
+uint16_t ALIVE = 2500;
 uint32_t SG90_PERIOD_US        = 20000U;
 uint32_t SG90_PULSE_MIN_US     = 544U;
 uint32_t SG90_PULSE_MAX_US     = 2400U;
 uint32_t SG90_PULSE_NEUTRAL_US = 1472U;
+uint8_t SG90_RETRACT_TIME = 150;
 uint16_t HCSR04_ECHO_TIMEOUT_US = 30000U;
 uint8_t  HCSR04_TRIG_PULSE_US   = 10U;
 uint8_t  IR_DEBOUNCE_TICKS       = 50U;
@@ -109,7 +111,7 @@ void checkBrazos(void) {
 				_encode(0x52, payload, 2);
 			}
 			brazos[i].estado = 2;  
-			brazos[i].timer = 125;
+			brazos[i].timer = time_arm_retract;
 		}
 	}
 }
@@ -176,7 +178,7 @@ void CmdParser(uint8_t cmd, uint8_t* params, uint8_t len) {
 								        _encode(0x52, payload, 2);
 							        }
 							        brazos[i].activo = 1;
-							        brazos[i].timer = 125;
+							        brazos[i].timer = time_arm_extend;
 							        brazos[i].estado = 1;
 							        } else if (i < 2) {
 							        pushFifo(i + 1, dest);
@@ -225,7 +227,7 @@ void CmdParser(uint8_t cmd, uint8_t* params, uint8_t len) {
 								_encode(0x52, payload, 2);
 							}
 							brazos[outNum].activo = 1;
-							brazos[outNum].timer = 125;
+							brazos[outNum].timer = time_arm_extend;
 							brazos[outNum].estado = 1;
 							} else if (outNum < 2) {
 							pushFifo(outNum + 1, dest);
@@ -252,7 +254,7 @@ void CmdParser(uint8_t cmd, uint8_t* params, uint8_t len) {
 								_encode(0x52, payload, 2);
 							}
 							brazos[0].activo = 1;
-							brazos[0].timer = 125;
+							brazos[0].timer = time_arm_extend;
 							brazos[0].estado = 1;
 							} else if (dest != -1) {
 							pushFifo(1, dest);
@@ -318,11 +320,11 @@ void CmdParser(uint8_t cmd, uint8_t* params, uint8_t len) {
 		break;
 		case 0x67:
 			if (len >= 8) {
-				retractTimer = params[0];
+				SG90_RETRACT_TIME = params[0];
 				SG90_ANGLE_DETECT = params[1];
 				SG90_ANGLE_REPOSE = params[2];
 				hcsrTimer = params[3];
-				aliveTimer = params[4];
+				ALIVE = params[4];
 				configCajas[0] = params[5];
 				configCajas[1] = params[6];
 				configCajas[2] = params[7];

@@ -109,7 +109,7 @@ void On2Ms(void) {
 	IR_Tick(&ir_s3);
 	
 	aliveTimer++;
-	if (aliveTimer >= 2500) {   
+	if (aliveTimer >= ALIVE) {   
 		aliveTimer = 0;
 		uint8_t empty[1] = {0};
 		Encode(0xF0, empty, 0);
@@ -127,7 +127,7 @@ void On2Ms(void) {
 					App_MoverBrazo(0x52, p, 2);
 					
 					brazos[i].activo = 1;
-					brazos[i].timer  = 125; 
+					brazos[i].timer  = time_arm_extend; 
 					brazos[i].estado = 1;
 				}
 			}
@@ -298,12 +298,14 @@ void hal_servo1(uint8_t state) {
 	else       PORTD &= ~(1 << PORTD7);
 }
 
-void hal_servo2(uint8_t state) {
+//cambie del servo2 a servo3
+void hal_servo3(uint8_t state) {
 	if (state) PORTB |= (1 << PORTB4);
 	else       PORTB &= ~(1 << PORTB4);
 }
 
-void hal_servo3(uint8_t state) {
+//cambie del servo3 a servo2
+void hal_servo2(uint8_t state) {
 	if (state) PORTB |= (1 << PORTB3);
 	else       PORTB &= ~(1 << PORTB3);
 }
@@ -349,15 +351,15 @@ void App_MoverBrazo(uint8_t cmd, uint8_t* payload, uint8_t n) {
 		uint8_t extender = (payload[1] != 0);
 
 		if (extender) {
-			if (mascara & (1<<0)) SG90_SetAngle(&servo1, 0);
-			if (mascara & (1<<1)) SG90_SetAngle(&servo2, 0);
-			if (mascara & (1<<2)) SG90_SetAngle(&servo3, 0);
+			if (mascara & (1<<0)) SG90_SetAngle(&servo1, SG90_ANGLE_DETECT);
+			if (mascara & (1<<1)) SG90_SetAngle(&servo2, SG90_ANGLE_DETECT);
+			if (mascara & (1<<2)) SG90_SetAngle(&servo3, SG90_ANGLE_DETECT);
 			} else {
-			if (mascara & (1<<0)) SG90_SetAngle(&servo1, 90);
-			if (mascara & (1<<1)) SG90_SetAngle(&servo2, 90);
-			if (mascara & (1<<2)) SG90_SetAngle(&servo3, 90);
+			if (mascara & (1<<0)) SG90_SetAngle(&servo1, SG90_ANGLE_REPOSE);
+			if (mascara & (1<<1)) SG90_SetAngle(&servo2, SG90_ANGLE_REPOSE);
+			if (mascara & (1<<2)) SG90_SetAngle(&servo3, SG90_ANGLE_REPOSE);
 			
-			retractTimer = 150;   
+			retractTimer = SG90_RETRACT_TIME;   
 			retractPending = 1;
 		}
 		Encode(cmd, payload, n);
@@ -402,9 +404,9 @@ int main(void) {
 	SG90_Init(&servo2, hal_servo2);
 	SG90_Init(&servo3, hal_servo3);
 	
-	SG90_SetAngle(&servo1, 90);
-	SG90_SetAngle(&servo2, 90);
-	SG90_SetAngle(&servo3, 90);
+	SG90_SetAngle(&servo1, SG90_ANGLE_REPOSE);
+	SG90_SetAngle(&servo2, SG90_ANGLE_REPOSE);
+	SG90_SetAngle(&servo3, SG90_ANGLE_REPOSE);
 	
 	sei();
 
