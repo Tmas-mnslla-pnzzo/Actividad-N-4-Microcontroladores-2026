@@ -11,7 +11,6 @@ static EncodeCallback _encode = 0;
 static TriggerCallback _trigger = 0;
 static VelocidadCallback _velocidad = 0;
 static OutputCallback _output = 0;
-uint8_t anchoCaja = 0;
 uint8_t sistemaListo = 0;
 uint8_t ledMode;
 uint16_t cajasEntrada = 0;
@@ -27,6 +26,7 @@ uint8_t  HCSR04_TRIG_PULSE_US   = 10U;
 uint8_t  IR_DEBOUNCE_TICKS       = 50U;
 uint8_t calibracion[4] = {20, 16, 13, 10};
 uint8_t tolerancia = 2;
+uint8_t anchoCaja = 10;
 uint8_t time_arm_extend = 125;
 uint8_t time_arm_retract = 125;
 uint8_t SG90_ANGLE_DETECT = 0;
@@ -266,10 +266,17 @@ void CmdParser(uint8_t cmd, uint8_t* params, uint8_t len) {
 			if (len >= 1) {
 				modo_ciego = params[0];
 			}
-			if (len >= 4) {
-				dist_s0_a_salida[0] = params[1];
-				dist_s0_a_salida[1] = params[2];
-				dist_s0_a_salida[2] = params[3];
+			if (len >= 2) medir_auto = params[1];
+			if (len >= 5) {
+				dist_s0_a_salida[0] = params[2];
+				dist_s0_a_salida[1] = params[3];
+				dist_s0_a_salida[2] = params[4];
+			}
+			if (modo_ciego == 1 && medir_auto == 1) {
+				vel_medida = 0;
+				midiendo_vel = 1;   
+			} else {
+				vel_medida = 1;     
 			}
 		break;
 		case 0x61:

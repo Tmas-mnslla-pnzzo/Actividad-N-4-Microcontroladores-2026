@@ -45,6 +45,9 @@ extern uint16_t aliveTimer;
 extern uint8_t configCajas[3];
 extern uint8_t  modo_ciego;
 extern float vel_cinta_cms;
+extern uint8_t vel_medida;
+extern uint8_t midiendo_vel;
+extern uint8_t medir_auto;
 extern float dist_s0_a_salida[3];
 
 typedef void (*EncodeCallback)(uint8_t cmd, uint8_t* payload, uint8_t n);

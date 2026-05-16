@@ -10,9 +10,8 @@
 static uint8_t time100ms;
 static uint16_t testServoTimer = 0;
 static uint32_t t_detect = 0;
-static uint8_t midiendo_vel = 0;
-static uint8_t ancho_vel = 0;
 static uint8_t retractPending = 0;
+uint8_t midiendo_vel = 0;  
 uint16_t aliveTimer = 0;
 uint8_t retractTimer = 0;
 uint16_t hcsrTimer = 0;
@@ -21,12 +20,13 @@ uint8_t tipo = 0;
 uint32_t g_now_us;
 
 //para el modo ciego
-uint8_t modo_ciego = 0;         
-float vel_cinta_cms = 10.0f;  
-float dist_s0_a_salida[3] = {20.0f, 40.0f, 60.0f};
+uint8_t modo_ciego = 1;     
+uint8_t medir_auto   = 0;  
+uint8_t vel_medida   = 1;    
+float vel_cinta_cms = 30.0f;  
+float dist_s0_a_salida[3] = {200.0f, 400.0f, 600.0f};
 static uint16_t timer_ciego[3] = {0, 0, 0};
 static uint8_t timer_ciego_activo[3] = {0, 0, 0};
-static uint8_t destino_ciego[3] = {0, 0, 0}; 
 
 SG90_t servo1, servo2, servo3;
 HCSR04_t g_hcsr04;
@@ -117,13 +117,22 @@ void On2Ms(void) {
 	
 	testServoTimer++;
 	
-	//hcsrTimer++;
-	//if (hcsrTimer >= 1500) {
-	//	hcsrTimer = 0;
-	//	if (!HCSR04_IsBusy(&g_hcsr04)) {
-	//		HCSR04_Trigger(&g_hcsr04, g_now_us);
-	//	}
-	//}
+	if (modo_ciego) {
+		for (uint8_t i = 0; i < 3; i++) {
+			if (timer_ciego_activo[i] && timer_ciego[i] > 0) {
+				timer_ciego[i]--;
+				if (timer_ciego[i] == 0) {
+					timer_ciego_activo[i] = 0;
+					uint8_t p[2] = {(1 << i), (1 << i)};
+					App_MoverBrazo(0x52, p, 2);
+					
+					brazos[i].activo = 1;
+					brazos[i].timer  = 125; 
+					brazos[i].estado = 1;
+				}
+			}
+		}
+	}
 	
 	if (retractPending && retractTimer > 0) {
 		retractTimer--;
@@ -191,12 +200,30 @@ void on_resultado(float dis) {
 	}else if (dis >= calibracion[3]-tolerancia && dis <= calibracion[3]+tolerancia) {
 		tipo = calibracion[3];
 	}
+	
 	if (tipo > 0) {
 		Clasificador_NuevaCaja(tipo);
+	}
+	
+	if (modo_ciego && tipo > 0) {
+		for (uint8_t i = 0; i < 3; i++) {
+			if (tipo == configCajas[i]) {
+				for (uint8_t j = 0; j < 3; j++) {
+					if (j != i) timer_ciego_activo[j] = 0;
+				}
+				break;
+			}
+		}
 	}
 }
 
 void on_s0_detected(void) {
+	if (modo_ciego && vel_medida && vel_cinta_cms > 0) {
+		for (uint8_t i = 0; i < 3; i++) {
+			timer_ciego[i] = (uint16_t)((dist_s0_a_salida[i] / vel_cinta_cms) * 500.0f);
+			timer_ciego_activo[i] = 1;
+		}
+	}
 	if (midiendo_vel) {
 		t_detect = g_now_us;
 	}
@@ -211,13 +238,13 @@ void on_s0_detected(void) {
 void on_s0_released(void) {
 	if (midiendo_vel) {
 		uint32_t dt_us = g_now_us - t_detect;
-		uint16_t vel = (uint16_t)(((uint32_t)ancho_vel * 1000000UL) / dt_us);
+		uint16_t vel = (uint16_t)(((uint32_t)anchoCaja * 1000000UL) / dt_us);
 		
 		if (vel > 255) vel = 255;
 		
 		vel_cinta_cms = (float)vel;
-		uint8_t payload[1] = { (uint8_t)vel };
-		Encode(0x62, payload, 1);
+
+		vel_medida = 1;
 		midiendo_vel = 0;
 	}
 	PORTD &= ~(1 << PORTD6);
@@ -312,7 +339,7 @@ void App_TriggerHCSR04(void) {
 }
 
 void App_IniciarVelocidad(uint8_t ancho_cm) {
-	ancho_vel = ancho_cm;
+	anchoCaja = ancho_cm;
 	midiendo_vel = 1;
 }
 
